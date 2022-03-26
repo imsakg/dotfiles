@@ -1,4 +1,7 @@
-#!/bin/sh
+exec i3
+
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -8,15 +11,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +19,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
