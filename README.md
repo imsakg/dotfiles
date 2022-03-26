@@ -6,6 +6,9 @@ Will be some fancy text here.
 ### Appearance
 
 #### Desktop
+#### Kitty
+![](kitty.png)
+#### ST
 ![](st.png)
 #### I3
 ![](i3.png)
@@ -15,6 +18,7 @@ Will be some fancy text here.
 ![](emacs.png)
 #### Ncspot
 ![](ncspot.png)
+
 
 ##### TODOs
 * Wiki
