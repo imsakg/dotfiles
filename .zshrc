@@ -235,6 +235,8 @@ alias cryptDrive="rclone mount cryptDrive: /home/msa/Drive --daemon --user-agent
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
 
+alias timestamp="python -c 'import time; print(time.time().__int__())'"
+
 # Shity ohMyZSH aliases
 unalias tldr
 
