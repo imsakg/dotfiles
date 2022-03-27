@@ -18,8 +18,8 @@ export PATH="$PATH:/home/msa/Applications/flutter/bin"
 export ZSH="/home/msa/.oh-my-zsh"
 export TERM="xterm-256color"                      # getting proper colors
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
-export EDITOR="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
-export VISUAL="emacsclient -c -a emacs"           # $VISUAL use Emacs in GUI mode
+export EDITOR="nvim"              # $EDITOR use Emacs in terminal
+export VISUAL="nvim"           # $VISUAL use Emacs in GUI mode
 export LIBGL_ALWAYS_SOFTWARE=1
 export MESA_GL_VERSION_OVERRIDE=4.6
 export CHROME_EXECUTABLE="/usr/bin/brave"
@@ -226,6 +226,8 @@ alias kakd="/usr/bin/kak -d -s mysession &"
 alias vim=nvim
 alias cd..="cd .."
 alias xfcedit="nvim ~/.config/xfce4/xfconf/xfce-perchannel-xml/"
+
+alias wheather="curl -Ss  --ipv4 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo"
 
 alias cryptDrive="rclone mount cryptDrive: /home/msa/Drive --daemon --user-agent mydrive --copy-links --no-gzip-encoding --no-check-certificate --vfs-cache-mode full --dir-cache-time 24h --poll-interval 10s --cache-dir=/home/msa/temp/cache/ --drive-pacer-min-sleep 10ms --drive-pacer-burst 1000 --vfs-cache-max-size 1G --vfs-cache-poll-interval 5m --vfs-read-ahead 2G --bwlimit-file 32M --umask 000"
 
