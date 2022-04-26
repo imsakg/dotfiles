@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'bronson/vim-trailing-whitespace'
     Plug 'unblevable/quick-scope'
     Plug 'editorconfig/editorconfig-vim'
+    Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 "{{ File management }}
     Plug 'vifm/vifm.vim'                               " Vifm
     Plug 'scrooloose/nerdtree'                         " Nerdtree
@@ -54,7 +55,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'jceb/vim-orgmode'
     Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
+    Plug 'github/copilot.vim'
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                          " Change surrounding marks
 "{{ Syntax Highlighting and Colors }}
