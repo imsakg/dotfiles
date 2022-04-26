@@ -14,8 +14,9 @@ set $alt Mod1
 
 exec --no-startup-id setxkbmap tr
 exec --no-startup-id dunst
-exec --no-startup-id picom
+exec_always --no-startup-id picom
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec_always --no-startup-id conky --config=$HOME/.dotfiles/conky/.conkyrc --daemonize --pause=0 --interval=1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -328,8 +329,8 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 # start nitrogn
-exec --no-startup-id nitrogen
-
+# exec --no-startup-id nitrogen
+exec_always feh --randomize --bg-fill ~/msa/wallpapers
 # exec startup applications
 # exec tabby
 # exec spotify
