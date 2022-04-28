@@ -7,6 +7,8 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 # PATHs
+# autojump
+[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # STATICs
 export PATH=/home/msa/.local/bin:/home/msa/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/usr/lib/jvm/default/bin:/home/msa/.local/bin:/home/msa/.platformio/penv/bin
@@ -154,6 +156,12 @@ alias mocp='mocp -M "$XDG_CONFIG_HOME"/moc -O MOCDir="$XDG_CONFIG_HOME"/moc'
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+memtop() { 
+    ps -eo size,pid,user,command --sort -size | \
+    awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }' |\
+    cut -d "" -f2 | cut -d "-" -f1
+}
 
 ## get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
