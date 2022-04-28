@@ -3,9 +3,10 @@ msa's dotfiles
 
 Will be some fancy text here.
 
-### Appearance
+### [Appearance](Appearance)
 
 #### Desktop
+![](Desktop.png)
 #### Kitty
 ![](kitty.png)
 #### ST
