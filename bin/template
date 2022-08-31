@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# TODO: refactor
+select template in $(basename $DOTFILES/templates/.*[a-z] $DOTFILES/templates/*); do
+  cp $DOTFILES/templates/$template ./$template
+  break;
+done;
