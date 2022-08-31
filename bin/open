@@ -1,3 +1,0 @@
-#! /bin/env bash
-
-xdg-open $@ 2>/dev/null
