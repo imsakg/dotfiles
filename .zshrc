@@ -2,9 +2,9 @@
 # zmodload zsh/zprof
 
 # POWER10K
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
@@ -38,6 +38,8 @@ export shell="$(which zsh)";
 export SHELL="$shell";
 export TERMINAL="alacritty";
 
+export RUSTC_WRAPPER=sccache
+
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
 export HISTCONTROL=ignoredups;
@@ -57,6 +59,7 @@ export GO15VENDOREXPERIMENT=1
 
 # rip's grevyard (Trash)
 export GRAVEYARD="$HOME/.local/share/Trash/files"
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 
 # if it's an ssh session export GPG_TTY
 if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
@@ -77,16 +80,25 @@ source /etc/profile
 [ -f .aliases ] && source .aliases
 [ -f .env ] && source .env
 
-# autoload -Uz compinit promptinit
-# compinit
-# promptinit
-
 # ZSHs PLUGINS
-plugins=(z fzf history git zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions lol colored-man-pages rust systemd colorize gitignore aliases alias-finder archlinux autopep8 command-not-found copybuffer copyfile copypath dotnet encode64 gh gnu-utils golang httpie jump isodate node pep8 percol poetry ripgrep redis-cli rsync screen thefuck timer torrent urltools vscode npm gpg-agent docker autojump timer rust)
+plugins=(z fzf history git zsh-syntax-highlighting fast-syntax-highlighting zsh-autosuggestions lol colored-man-pages systemd colorize gitignore aliases alias-finder archlinux autopep8 command-not-found copybuffer copyfile copypath dotnet encode64 gh gnu-utils golang httpie jump isodate node pep8 percol poetry ripgrep redis-cli rsync screen thefuck torrent urltools vscode npm gpg-agent docker autojump rust)
 
 source $ZSH/oh-my-zsh.sh
-
 # FUNCTIONS
+
+function preexec() {
+  timer=$(($(date +%s%0N)/1000000))
+}
+
+function precmd() {
+  if [ $timer ]; then
+    now=$(($(date +%s%0N)/1000000))
+    elapsed=$(($now-$timer))
+
+    export RPROMPT="%F{cyan}${elapsed}ms %{$reset_color%}"
+    unset timer
+  fi
+}
 
 # EXTRACT
 SAVEIFS=$IFS
@@ -181,8 +193,7 @@ alias gitdiff="git difftool --no-symlinks --dir-diff"
 alias d="kitty +kitten diff"
 
 # broot
-alias br='broot -dhp'
-alias bs='broot --sizes'
+alias br='broot -dhp --sizes'
 
 # docker
 alias dri="docker run --rm -i -t --env TERM=xterm-color "
@@ -328,8 +339,6 @@ alias cryptDrive="rclone mount cryptDrive: /home/msa/Drive --daemon --user-agent
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
 
-alias timestamp="python -c 'import time; print(time.time().__int__())'"
-
 # Shity ohMyZSH aliases
 unalias tldr
 
@@ -357,9 +366,16 @@ fi
 
 zplug load
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+# helix
+alias hx="helix"
+
+hx-choose-theme () {
+  chosen_theme=$(/usr/bin/ls ~/.config/helix/themes | grep -v "chosen_theme.toml" | fzf --height=~15% --border=double)
+
+  cp ~/.config/helix/themes/$chosen_theme ~/.config/helix/themes/chosen_theme.toml > /dev/null 2>&1
+}
+
+# end of helix
 
 # FIXes
 
@@ -374,6 +390,13 @@ source ~/.zsh_completions
 # autoload -U +X bashcompinit && bashcompinit
 
 source /home/msa/.config/broot/launcher/bash/br
+
+# carapace
+# export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+# zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+# source <(carapace _carapace)
+# zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+# end of carapace
 
 # profiling
 # zprof
