@@ -1,215 +1,262 @@
 local wezterm = require("wezterm")
-local utils = require("utils")
-local keybinds = require("keybinds")
-local scheme = wezterm.get_builtin_color_schemes()["nord"]
-local gpus = wezterm.gui.enumerate_gpus()
-require("on")
+local features = require("features")
+local act = wezterm.action
+local config = wezterm.config_builder()
+local G = features.getLuaFromTOML()
+local scheme
 
--- /etc/ssh/sshd_config
--- AcceptEnv TERM_PROGRAM_VERSION COLORTERM TERM TERM_PROGRAM WEZTERM_REMOTE_PANE
--- sudo systemctl reload sshd
-
----------------------------------------------------------------
---- functions
----------------------------------------------------------------
--- selene: allow(unused_variable)
----@diagnostic disable-next-line: unused-function, unused-local
-local function enable_wayland()
-	local session = os.getenv("DESKTOP_SESSION")
-	if session == "hyprland" then
-		return true
+function get_appearance(appearance)
+	if appearance:find("Dark") then
+		return "Dark"
+	else
+		return "Light"
 	end
-	-- local wayland = os.getenv("XDG_SESSION_TYPE")
-	-- if wayland == "wayland" then
-	-- 	return true
+end
+
+wezterm.on("window-resized", function(window, pane) end)
+wezterm.on("window-config-reloaded", function(window, pane)
+	-- If there are no overrides, this is our first time seeing
+	-- this window, so we can pick a random scheme.
+
+	local overrides = window:get_config_overrides() or {}
+	local appearance = get_appearance(window:get_appearance())
+	local theme = features.get_theme()
+	-- if appearance == "Dark" then
+	-- 	G.appearance = appearance
+	-- 	scheme = wezterm.color.get_builtin_schemes()[theme]
+	-- 	overrides.color_scheme = scheme
+	-- 	window:set_config_overrides(overrides)
+	-- 	features.set_appearance(appearance)
+	-- else
+	-- 	G.appearance = appearance
+	-- 	scheme = wezterm.color.get_builtin_schemes()[theme]
+	-- 	overrides.color_scheme = scheme
+	-- 	window:set_config_overrides(overrides)
+	-- 	features.set_appearance(appearance)
 	-- end
-	return false
-end
-
----------------------------------------------------------------
---- Merge the Config
----------------------------------------------------------------
-local function create_ssh_domain_from_ssh_config(ssh_domains)
-	if ssh_domains == nil then
-		ssh_domains = {}
-	end
-	for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
-		table.insert(ssh_domains, {
-			name = host,
-			remote_address = config.hostname .. ":" .. config.port,
-			username = config.user,
-			multiplexing = "None",
-			assume_shell = "Posix",
-		})
-	end
-	return { ssh_domains = ssh_domains }
-end
-
---- load local_config
--- Write settings you don't want to make public, such as ssh_domains
-package.path = os.getenv("HOME") .. "/.local/share/wezterm/?.lua;" .. package.path
-local function load_local_config(module)
-	local m = package.searchpath(module, package.path)
-	if m == nil then
-		return {}
-	end
-	return dofile(m)
-	-- local ok, _ = pcall(require, "local")
-	-- if not ok then
-	-- 	return {}
+	-- if overrides.color_scheme ~= scheme then
 	-- end
-	-- return require("local")
+end)
+
+-- FONTS
+local font
+if G.font.family == "Default" then
+	font = wezterm.font_with_fallback({})
+else
+	font = wezterm.font_with_fallback({
+		{ family = G.font.family, weight = G.font.weight or 400, italic = false },
+	})
 end
 
-local local_config = load_local_config("local")
+config.font_rules = { { intensity = "Bold", font = font }, { intensity = "Normal", font = font } }
+config.font_size = G.font.font_size or 16
 
--- local local_config = {
--- 	ssh_domains = {
--- 		{
--- 			-- This name identifies the domain
--- 			name = "my.server",
--- 			-- The address to connect to
--- 			remote_address = "192.168.8.31",
--- 			-- The username to use on the remote host
--- 			username = "katayama",
--- 		},
--- 	},
--- }
--- return local_config
+if G.OLED then
+	G.background = "#000000"
+end
 
----------------------------------------------------------------
---- Config
----------------------------------------------------------------
-local config = {
-	-- font = wezterm.font("Cica"),
-	-- font_size = 10.0,
-	font = wezterm.font("jetbrains mono nerd font"),
-	font_size = 10,
-	-- cell_width = 1.1,
-	-- line_height = 1.1,
-	-- font_rules = {
-	-- 	{
-	-- 		italic = true,
-	-- 		font = wezterm.font("Cica", { italic = true }),
-	-- 	},
-	-- 	{
-	-- 		italic = true,
-	-- 		intensity = "Bold",
-	-- 		font = wezterm.font("Cica", { weight = "Bold", italic = true }),
-	-- 	},
-	-- },
-	check_for_updates = false,
-	use_ime = true,
-	ime_preedit_rendering = "Builtin",
-	use_dead_keys = false,
-	warn_about_missing_glyphs = false,
-	-- enable_kitty_graphics = false,
-	animation_fps = 1,
-	cursor_blink_ease_in = "Constant",
-	cursor_blink_ease_out = "Constant",
-	cursor_blink_rate = 0,
-	enable_wayland = enable_wayland(),
-	-- https://github.com/wez/wezterm/issues/1772
-	-- enable_wayland = true,
-	-- color_scheme = "nordfox",
-	color_scheme = "Catppuccin Mocha",
-	color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colors/" },
-	hide_tab_bar_if_only_one_tab = false,
-	adjust_window_size_when_changing_font_size = false,
-	selection_word_boundary = " \t\n{}[]()\"'`,;:│=&!%",
-	window_padding = {
-		left = 0,
-		right = 0,
-		top = 0,
-		bottom = 0,
-	},
-	use_fancy_tab_bar = false,
-	colors = {
-		tab_bar = {
-			background = scheme.background,
-			new_tab = { bg_color = "#2e3440", fg_color = scheme.ansi[8], intensity = "Bold" },
-			new_tab_hover = { bg_color = scheme.ansi[1], fg_color = scheme.brights[8], intensity = "Bold" },
-			-- format-tab-title
-			-- active_tab = { bg_color = "#121212", fg_color = "#FCE8C3" },
-			-- inactive_tab = { bg_color = scheme.background, fg_color = "#FCE8C3" },
-			-- inactive_tab_hover = { bg_color = scheme.ansi[1], fg_color = "#FCE8C3" },
-		},
-	},
-	exit_behavior = "CloseOnCleanExit",
-	tab_bar_at_bottom = false,
-	window_close_confirmation = "AlwaysPrompt",
-	-- window_background_opacity = 0.8,
-	disable_default_key_bindings = true,
-	-- visual_bell = {
-	-- 	fade_in_function = "EaseIn",
-	-- 	fade_in_duration_ms = 150,
-	-- 	fade_out_function = "EaseOut",
-	-- 	fade_out_duration_ms = 150,
-	-- },
-	-- separate <Tab> <C-i>
-	enable_csi_u_key_encoding = true,
-	leader = { key = "Space", mods = "CTRL|SHIFT" },
-	keys = keybinds.create_keybinds(),
-	key_tables = keybinds.key_tables,
-	mouse_bindings = keybinds.mouse_bindings,
-	-- https://github.com/wez/wezterm/issues/2756
-	webgpu_preferred_adapter = gpus[1],
-	front_end = "OpenGL",
+-- scheme.background = G.background or scheme.background
+if G.appearance == "Dark" then
+	scheme = wezterm.color.get_builtin_schemes()[G.colorscheme_dark]
+	-- for colorscheme_dark, overrides in pairs({
+	-- 	["Default (dark) (terminal.sexy)"] = { background = "#121212" },
+	-- 	["Poimandres"] = { background = "#0E0F15" },
+	-- 	["catppuccin-mocha"] = { background = "#191926" },
+	-- 	["rose-pine"] = { background = "#12101A" },
+	-- 	["rose-pine-moon"] = { background = "#12101A" },
+	-- 	["tokyonight"] = { background = "#15161F" },
+	-- 	["tokyonight_moon"] = { background = "#15161F" },
+	-- 	["Gruvbox Material (Gogh)"] = { background = "#0f0f0f" },
+	-- 	["Nightfly (Gogh)"] = { background = "#010F1A" },
+	-- }) do
+	-- 	if G.colorscheme_dark == colorscheme_dark then
+	-- 		for property, value in pairs(overrides) do
+	-- 			scheme[property] = value
+	-- 			scheme.background = G.background or value
+	-- 		end
+	-- 	end
+	-- end
+else
+	scheme = wezterm.color.get_builtin_schemes()[G.colorscheme_light]
+	-- for colorscheme_light, overrides in pairs({
+	-- 	["Default (dark) (terminal.sexy)"] = { background = "#121212" },
+	-- 	["Poimandres"] = { background = "#0E0F15" },
+	-- 	["catppuccin-mocha"] = { background = "#191926" },
+	-- 	["rose-pine"] = { background = "#12101A" },
+	-- 	["rose-pine-moon"] = { background = "#12101A" },
+	-- 	["tokyonight"] = { background = "#15161F" },
+	-- 	["tokyonight_moon"] = { background = "#15161F" },
+	-- 	["Gruvbox Material (Gogh)"] = { background = "#0f0f0f" },
+	-- 	["Nightfly (Gogh)"] = { background = "#010F1A" },
+	-- }) do
+	-- 	if G.colorscheme_light == colorscheme_light then
+	-- 		for property, value in pairs(overrides) do
+	-- 			scheme[property] = value
+	-- 			scheme.background = G.background or value
+	-- 		end
+	-- 	end
+	-- end
+end
+
+config.color_scheme = "CustomTheme"
+config.color_schemes = { ["CustomTheme"] = scheme }
+-- config.command_palette_bg_color = scheme.background
+-- config.command_palette_fg_color = scheme.foreground
+
+config.font_size = 14
+-- config.font_weight
+config.cursor_blink_rate = 800
+
+config.inactive_pane_hsb = {
+	saturation = 0.9,
+	brightness = 0.8,
 }
 
-for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
-	if gpu.backend == "Vulkan" and gpu.device_type == "IntegratedGpu" then
-		config.webgpu_preferred_adapter = gpu
-		config.front_end = "WebGpu"
-		break
-	end
-end
+-- CURSOR
+config.cursor_blink_ease_in = "Linear"
+config.cursor_blink_ease_out = "Linear"
+config.hide_mouse_cursor_when_typing = true
+config.animation_fps = 60
+config.tiling_desktop_environments = { "X11 i3" }
 
-config.hyperlink_rules = {
-	-- Matches: a URL in parens: (URL)
+-- ENV
+config.set_environment_variables = { PATH = "/opt/homebrew/bin:" .. os.getenv("PATH") }
+
+config.window_padding = G.padding
+config.macos_window_background_blur = 50
+config.window_background_opacity = G.opacity
+config.adjust_window_size_when_changing_font_size = false
+-- config.initial_cols = 140
+-- config.initial_rows = 40
+config.window_decorations = "RESIZE" -- remove window decorations
+config.enable_scroll_bar = false
+config.window_frame = { font = wezterm.font({ family = G.font.family, weight = G.font.weight }) }
+config.command_palette_font_size = G.font.font_size or 16
+config.front_end = "WebGpu"
+config.audible_bell = "Disabled" -- disable sounds when at the end of doc
+
+config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = true
+
+wezterm.on("update-right-status", function(window, pane)
+	local name = window:active_key_table()
+	if name then
+		name = "TABLE: " .. name
+	end
+	window:set_right_status(name or "")
+end)
+
+config.leader = { key = "k", mods = "CMD" }
+config.keys = {
 	{
-		regex = "\\((\\w+://\\S+)\\)",
-		format = "$1",
-		highlight = 1,
+		key = "c",
+		mods = "CMD",
+		action = wezterm.action.CopyTo("ClipboardAndPrimarySelection"),
 	},
-	-- Matches: a URL in brackets: [URL]
 	{
-		regex = "\\[(\\w+://\\S+)\\]",
-		format = "$1",
-		highlight = 1,
+		key = "|",
+		mods = "CMD",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
-	-- Matches: a URL in curly braces: {URL}
 	{
-		regex = "\\{(\\w+://\\S+)\\}",
-		format = "$1",
-		highlight = 1,
+		key = "\\",
+		mods = "CMD",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
-	-- Matches: a URL in angle brackets: <URL>
+	{ key = "k", mods = "CMD|CTRL", action = wezterm.action_callback(features.theme_switcher) },
+	{ key = "f", mods = "CMD|CTRL", action = wezterm.action_callback(features.font_switcher) },
+	{ key = "p", mods = "CMD", action = wezterm.action.ShowTabNavigator },
+	{ key = "P", mods = "CMD", action = wezterm.action.ShowLauncher },
+	-- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
 	{
-		regex = "<(\\w+://\\S+)>",
-		format = "$1",
-		highlight = 1,
+		key = "LeftArrow",
+		mods = "OPT",
+		action = act.SendKey({
+			key = "b",
+			mods = "ALT",
+		}),
 	},
-	-- Then handle URLs not wrapped in brackets
 	{
-		-- Before
-		--regex = '\\b\\w+://\\S+[)/a-zA-Z0-9-]+',
-		--format = '$0',
-		-- After
-		regex = "[^(]\\b(\\w+://\\S+[)/a-zA-Z0-9-]+)",
-		format = "$1",
-		highlight = 1,
+		key = "RightArrow",
+		mods = "OPT",
+		action = act.SendKey({ key = "f", mods = "ALT" }),
 	},
-	-- implicit mailto link
+	{ key = "o", mods = "CMD|CTRL", action = wezterm.action_callback(features.toggleOLED) },
 	{
-		regex = "\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b",
-		format = "mailto:$0",
+		key = "f",
+		mods = "CMD",
+		action = act.Search({ CaseInSensitiveString = "" }),
+	},
+	-- CTRL+SHIFT+Space, followed by 'r' will put us in resize-pane
+	-- mode until we cancel that mode.
+	{
+		key = "r",
+		mods = "CMD",
+		action = act.ActivateKeyTable({
+			name = "resize_pane",
+			one_shot = false,
+		}),
+	},
+	{ key = "b", mods = "CMD|CTRL", action = features.global_bg() },
+
+	-- CTRL+SHIFT+Space, followed by 'a' will put us in activate-pane
+	-- mode until we press some other key or until 1 second (1000ms)
+	-- of time elapses
+	{
+		key = "a",
+		mods = "CMD",
+		action = act.ActivateKeyTable({
+			name = "activate_pane",
+			one_shot = false,
+			-- timeout_milliseconds = 1000,
+		}),
 	},
 }
-table.insert(config.hyperlink_rules, {
-	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
-	format = "https://github.com/$1/$3",
-})
 
-local merged_config = utils.merge_tables(config, local_config)
-return utils.merge_tables(merged_config, create_ssh_domain_from_ssh_config(merged_config.ssh_domains))
+config.key_tables = {
+	-- Defines the keys that are active in our resize-pane mode.
+	-- Since we're likely to want to make multiple adjustments,
+	-- we made the activation one_shot=false. We therefore need
+	-- to define a key assignment for getting out of this mode.
+	-- 'resize_pane' here corresponds to the name="resize_pane" in
+	-- the key assignments above.
+	resize_pane = {
+		{ key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+
+		{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+
+		{ key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+
+		{ key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+
+		-- Cancel the mode by pressing escape
+		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "Enter", action = "PopKeyTable" },
+	},
+
+	-- Defines the keys that are active in our activate-pane mode.
+	-- 'activate_pane' here corresponds to the name="activate_pane" in
+	-- the key assignments above.
+	activate_pane = {
+		{ key = "LeftArrow", action = act.ActivatePaneDirection("Left") },
+		{ key = "h", action = act.ActivatePaneDirection("Left") },
+
+		{ key = "RightArrow", action = act.ActivatePaneDirection("Right") },
+		{ key = "l", action = act.ActivatePaneDirection("Right") },
+
+		{ key = "UpArrow", action = act.ActivatePaneDirection("Up") },
+		{ key = "k", action = act.ActivatePaneDirection("Up") },
+
+		{ key = "DownArrow", action = act.ActivatePaneDirection("Down") },
+		{ key = "j", action = act.ActivatePaneDirection("Down") },
+		-- Cancel the mode by pressing escape
+		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "Enter", action = "PopKeyTable" },
+	},
+}
+
+return config
