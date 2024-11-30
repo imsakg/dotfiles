@@ -1,0 +1,9 @@
+cmd + alt - right : yabai -m space --focus next
+cmd + alt - left : yabai -m space --focus prev
+alt - tab : yabai -m space --focus recent
+alt + shift - tab : yabai -m window --space recent
+
+alt - home : yabai -m space --focus first
+alt - end : yabai -m space --focus last
+alt - pageup : yabai -m space --focus prev
+alt - pagedown : yabai -m space --focus next

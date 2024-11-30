@@ -1,0 +1,14 @@
+OLED = true
+appearance = "Light"
+colorscheme_dark = "Brogrammer"
+colorscheme_light = "Builtin Dark"
+opacity = 0.88
+
+[font]
+family = "MonaSpace Neon Var"
+
+[padding]
+bottom = 8
+left = 8
+right = 8
+top = 8
