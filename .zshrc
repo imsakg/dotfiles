@@ -2,11 +2,14 @@
 export BAT_THEME="Visual Studio Dark+"
 export BUN_INSTALL="$HOME/.bun"
 export CHROME_EXECUTABLE="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+export CLICOLOR=1
 export COLORTERM=truecolor
 export DENO_INSTALL="/Users/msa/.deno"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export EDITOR="nvim"
+export EDITOR=nvim
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
+export GIT_EDITOR=nvim
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export SKIM_DEFAULT_OPTIONS="--preview 'bat --color=always {}'"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -22,7 +25,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export TERM="xterm-256color"
 export TERMINAL="wezterm";
 export TODOTXT_DEFAULT_ACTION=ls
-export VISUAL="nvim"
+export VISUAL=nvim
 export ZSH="$HOME/.oh-my-zsh"
 export ZOXIDE_CMD_OVERRIDE="cd"
 
@@ -143,8 +146,8 @@ plugins=(
         urltools
         vscode
         zoxide
+        fzf-tab
         zsh-autosuggestions
-        zsh-history-substring-search
 )
 
 # Sources
@@ -152,23 +155,6 @@ plugins=(
 source /etc/profile
 [ -f .aliases ] && source .aliases
 [ -f .env ] && source .env
-
-# Load OMZ
-[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
-
-source /Users/msa/.config/broot/launcher/bash/br
-[[ $- == *i* ]] && source "/opt/homebrew/opt/sk/share/zsh/site-functions/completion.zsh" 2> /dev/null
-source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
-
-
-# Prompt
-eval "$(starship init zsh)"
-eval "$(atuin init zsh --disable-up-arrow)"
-eval "$(fnm env --use-on-cd)"
-eval "$(ngrok completion)"
-eval "$(procs --gen-completion-out zsh)"
-eval "$(sqlx completions zsh)"
-eval "$(wezterm shell-completion --shell zsh)"
 
 # Set homebrew by architecture
 if [ "$(arch)" = "arm64" ]; then
@@ -179,6 +165,21 @@ else
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+# Load OMZ
+[ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
+
+source /Users/msa/.config/broot/launcher/bash/br
+[[ $- == *i* ]] && source "/opt/homebrew/opt/sk/share/zsh/site-functions/completion.zsh" 2> /dev/null
+source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
+
+# Prompt
+eval "$(starship init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(fnm env --use-on-cd)"
+eval "$(ngrok completion)"
+eval "$(procs --gen-completion-out zsh)"
+eval "$(sqlx completions zsh)"
+eval "$(wezterm shell-completion --shell zsh)"
 
 # ALIAS
 alias c='clear'
@@ -193,6 +194,10 @@ alias br='broot -dhp --sizes'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
+
+# sk, rg, fd
+alias skvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && nvim "$x" || true }; f'
+alias rgvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && nvim "$(echo $x|cut -d: -f1)" "+$(echo $x|cut -d: -f2)" || true }; f'
 
 # diffing
 alias gitdiff="git difftool --no-symlinks --dir-diff"
@@ -280,7 +285,7 @@ alias bunrdo="bun run dev -- --open"
 alias cargo-update-bin='cargo install --locked $(cargo install --list | egrep "^[a-z0-9_-]+ v[0-9.]+:$" | cut -f1 -d" ")'
 alias cg='cargo'
 alias nv="nvim ."
-alias n="nvim"
+alias n=nvim
 alias sql="sqlite3"
 alias python=python3
 alias uvpip='uv pip'
@@ -353,6 +358,3 @@ set_java_version() {
 
     java -version
 }
-
-# Added by Windsurf
-export PATH="/Users/msa/.codeium/windsurf/bin:$PATH"
