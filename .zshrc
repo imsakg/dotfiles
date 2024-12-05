@@ -99,7 +99,6 @@ bindkey '^h'  list-directories-sk
 plugins=(
         alias-finder
         aliases
-        autojump
         autopep8
         bun
         colored-man-pages
@@ -116,7 +115,7 @@ plugins=(
         eza
         fancy-ctrl-z
         fast-syntax-highlighting
-        fnm
+        # fnm
         fzf
         gh
         git
@@ -157,12 +156,14 @@ source /etc/profile
 [ -f .env ] && source .env
 
 # Set homebrew by architecture
-if [ "$(arch)" = "arm64" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    export FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
-else
-    export FPATH="$(/usr/local/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
-    eval "$(/usr/local/bin/brew shellenv)"
+if [[ $(uname) == "Darwin" ]]; then
+        if [ "$(arch)" = "arm64" ]; then
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+                export FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
+        else
+                export FPATH="$(/usr/local/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
+                eval "$(/usr/local/bin/brew shellenv)"
+        fi
 fi
 
 # Load OMZ
@@ -175,7 +176,7 @@ source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
 # Prompt
 eval "$(starship init zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
-eval "$(fnm env --use-on-cd)"
+# eval "$(fnm env --use-on-cd)"
 eval "$(ngrok completion)"
 eval "$(procs --gen-completion-out zsh)"
 eval "$(sqlx completions zsh)"
@@ -196,7 +197,7 @@ alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
 # sk, rg, fd
-alias skvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && nvim "$x" || true }; f'
+alias skvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && nvim "$x" || true }; f'
 alias rgvi='f(){ x="$(sk --bind "ctrl-p:toggle-preview" --ansi -i -c "rg --color=always --line-number \"{}\"" --preview="preview.sh -v {}" --preview-window=up:50%:hidden)"; [[ $? -eq 0 ]] && nvim "$(echo $x|cut -d: -f1)" "+$(echo $x|cut -d: -f2)" || true }; f'
 
 # diffing
@@ -256,6 +257,11 @@ alias aigcr='OPENAI_BASE_URL=http://localhost:11434/v1 OPENAI_API_KEY=ollama aic
 
 # kitty
 alias d="kitty +kitten diff"
+
+# Binary Tools
+alias ldd="otool -L"
+alias nm="otool -tV"
+alias strings="strings -"
 
 # parallel
 alias webp2png="parallel dwebp {} -o {.}.png ::: *.webp"
