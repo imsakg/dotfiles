@@ -29,28 +29,6 @@ export VISUAL=nvim
 export ZSH="$HOME/.oh-my-zsh"
 export ZOXIDE_CMD_OVERRIDE="cd"
 
-export PATH="$HOME/.local/bin:\
-/usr/local/bin:\
-/usr/bin:\
-/usr/local/sbin:\
-$BUN_INSTALL/bin:\
-$HOME/go/bin:\
-$DENO_INSTALL/bin:\
-$HOME/.dotnet/tools:\
-$HOME/.cargo/bin:\
-/opt/homebrew/opt/qt@5/bin:\
-/opt/homebrew/opt/qt@6/bin:\
-/opt/homebrew/opt/ruby/bin:\
-/opt/homebrew/opt/binutils/bin:\
-/opt/homebrew/opt/bison/bin:\
-/opt/homebrew/opt/gawk/libexec/gnubin:\
-/opt/homebrew/opt/gnu-getopt/bin:\
-/opt/homebrew/opt/gnu-tar/libexec/gnubin:\
-/opt/homebrew/opt/gnu-sed/libexec/gnubin:\
-/opt/homebrew/opt/make/libexec/gnubin:\
-/opt/homebrew/opt/texinfo/bin:\
-$PATH"
-
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -364,3 +342,27 @@ set_java_version() {
 
     java -version
 }
+
+export PATH="$HOME/.local/bin:\
+$BUN_INSTALL/bin:\
+$HOME/go/bin:\
+$DENO_INSTALL/bin:\
+$HOME/.dotnet/tools:\
+$HOME/.cargo/bin:\
+/opt/homebrew/opt/qt@5/bin:\
+/opt/homebrew/opt/qt@6/bin:\
+/opt/homebrew/opt/ruby/bin:\
+/opt/homebrew/opt/binutils/bin:\
+/opt/homebrew/opt/bison/bin:\
+/opt/homebrew/opt/gawk/libexec/gnubin:\
+/opt/homebrew/opt/gnu-getopt/bin:\
+/opt/homebrew/opt/gnu-tar/libexec/gnubin:\
+/opt/homebrew/opt/gnu-sed/libexec/gnubin:\
+/opt/homebrew/opt/make/libexec/gnubin:\
+/opt/homebrew/opt/texinfo/bin:\
+/usr/local/bin:\
+/usr/bin:\
+/usr/local/sbin:\
+$PATH"
+
+
