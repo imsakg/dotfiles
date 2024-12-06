@@ -102,7 +102,6 @@ return {
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.vim-move" },
 
-  { import = "astrocommunity.editing-support/cutlass-nvim" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.bash" },
