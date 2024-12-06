@@ -19,3 +19,9 @@ vim.filetype.add {
 -- vim.g.copilot_assume_mapped = true
 -- vim.g.copilot_no_tab_map = true
 -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+vim.cmd [[nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'S')+1 ? '0' : '^']]
+-- configure the litee.nvim library
+require("litee.lib").setup {}
+-- configure litee-calltree.nvim
+require("litee.calltree").setup {}

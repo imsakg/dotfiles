@@ -102,7 +102,26 @@ return {
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.vim-move" },
 
+  { import = "astrocommunity.editing-support/cutlass-nvim" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.code-runner.overseer-nvim" },
+  { import = "astrocommunity.colorscheme.vscode-nvim" },
+  { import = "astrocommunity.colorscheme.github-nvim-theme" },
+  { import = "astrocommunity.recipes.heirline-mode-text-statusline" },
+  { import = "astrocommunity.recipes.heirline-vscode-winbar" },
+  { import = "astrocommunity.note-taking.neorg" },
+  { import = "astrocommunity.note-taking.global-note-nvim" },
+
+  { "echasnovski/mini.nvim", version = "*" },
+  { import = "astrocommunity.indent.mini-indentscope" },
+
   -- { import = "astrocommunity.workflow.precognition-nvim" },
+
   -- Personal Extensions
   {
     "ray-x/lsp_signature.nvim",
@@ -182,6 +201,11 @@ return {
       },
     },
   },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    config = true,
+  },
   "frazrepo/vim-rainbow",
   "PotatoesMaster/i3-vim-syntax",
   "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -190,5 +214,57 @@ return {
     "NStefan002/screenkey.nvim",
     lazy = false,
     version = "*", -- or branch = "dev", to use the latest commit
+  },
+
+  {
+    "AstroNvim/astrolsp",
+    optional = true,
+    ---@param opts AstroLSPOpts
+    opts = {
+      handlers = { rust_analyzer = false }, -- disable setup of `rust_analyzer`
+      ---@diagnostic disable: missing-fields
+      config = {
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                features = "all",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    "nvim-neorg/neorg",
+    cmd = "Neorg", -- lazy load on command, allows you to autocomplete :Neorg regardless of whether it's loaded yet
+    --  (you could also just remove both lazy loading things)
+    priority = 30, -- treesitter is on default priority of 50, neorg should load after it.
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {},
+        },
+      }
+    end,
+
+    opts = {
+      load = {
+        ["core.journal"] = {
+          config = {
+            workspace = "notes",
+            dir = "~/Documents/Notes/Journal",
+          },
+        },
+        ["core.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/Documents/Notes",
+            },
+          },
+        },
+      },
+    },
   },
 }

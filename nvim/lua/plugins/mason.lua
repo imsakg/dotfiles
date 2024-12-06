@@ -11,6 +11,7 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
         -- add more arguments for adding more language servers
+        "texlab",
       })
     end,
   },
@@ -24,6 +25,15 @@ return {
         "prettier",
         "stylua",
         -- add more arguments for adding more null-ls sources
+        "biome",
+        "stylua",
+        "clang-format",
+        "rubocop",
+        "shfmt",
+        "yamlfmt",
+        "xmlformatter",
+        "shellcheck",
+        "latexindent",
       })
     end,
   },
@@ -35,6 +45,7 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "python",
         -- add more arguments for adding more debuggers
+        "codelldb",
       })
     end,
   },

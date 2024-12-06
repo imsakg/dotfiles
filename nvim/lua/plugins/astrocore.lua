@@ -25,7 +25,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         -- signcolumn = "auto", -- sets vim.opt.signcolumn to auto
@@ -115,6 +115,8 @@ return {
         ["<C-S-l>"] = { "<Cmd>vertical resize +2<CR>", desc = "Resize split right" },
 
         ["<Leader><Leader>"] = { function() require("telescope.builtin").resume() end, desc = "Resume previous search" },
+
+        ["<Leader>E"] = { desc = "Executor" },
         ["<Leader>Ee"] = { "<cmd>ExecutorRun<cr>", desc = "Executor Exec!" },
         ["<Leader>Et"] = { "<cmd>ExecutorToggleDetail<cr>", desc = "Executor Toggle Detail!" },
         ["<Leader>Eh"] = { "<cmd>ExecutorHistory<cr>", desc = "Executor Exec!" },
@@ -152,6 +154,56 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+
+        ["<leader>r"] = { name = " Rust Tools" },
+        ["<leader>ra"] = { function() vim.cmd.RustLsp "codeAction" end, desc = "Rust Code Action" },
+        ["<leader>rm"] = { function() vim.cmd.RustLsp "expandMacro" end, desc = "Expand Macro" },
+        ["<leader>rC"] = { function() vim.cmd.RustLsp "openCargo" end, desc = "Open Cargo.toml" },
+        ["<leader>rD"] = { function() vim.cmd.RustLsp "openDocs" end, desc = "Open Docs" },
+        ["<leader>rp"] = { function() vim.cmd.RustLsp "parentModule" end, desc = "Parent Module" },
+        ["<leader>rr"] = { function() vim.cmd.RustLsp "runnables" end, desc = "Rust Runnables" },
+        ["<leader>rd"] = { function() vim.cmd.RustLsp "debuggables" end, desc = "Rust Debuggables" },
+        ["<leader>rt"] = { function() vim.cmd.RustLsp "testables" end, desc = "Rust Testables" },
+        ["<leader>rf"] = { function() vim.cmd.RustLsp "workspaceSymbol" end, desc = "Find Symbol" },
+        ["<leader>rj"] = { function() vim.cmd.RustLsp "joinLines" end, desc = "Join Lines" },
+        ["<leader>re"] = { function() vim.cmd.RustLsp "explainError" end, desc = "Explain Error" },
+        -- Crates
+        ["<leader>rc"] = { name = "Crates" },
+        ["<leader>rcr"] = { function() require("crates").reload() end, desc = "Reload Crates" },
+        ["<leader>rcf"] = { function() require("crates").show_features_popup() end, desc = "Show Features" },
+        ["<leader>rcv"] = { function() require("crates").show_versions_popup() end, desc = "Show Versions" },
+        ["<leader>rcd"] = { function() require("crates").show_dependencies_popup() end, desc = "Show Dependencies" },
+        ["<leader>rcu"] = { function() require("crates").update() end, desc = "Update Crate" },
+        ["<leader>rca"] = { function() require("crates").update_all_crates() end, desc = "Update All Crates" },
+        ["<leader>rcU"] = { function() require("crates").upgrade_crate() end, desc = "Upgrade Crate" },
+        ["<leader>rcA"] = { function() require("crates").upgrade_all_crates() end, desc = "Upgrade All Crates" },
+        ["<leader>rcH"] = { function() require("crates").open_homepage() end, desc = "Open Homepage" },
+        ["<leader>rcR"] = { function() require("crates").open_repository() end, desc = "Open Repository" },
+        ["<leader>rcD"] = { function() require("crates").open_documentation() end, desc = "Open Documentation" },
+        ["<leader>rcC"] = { function() require("crates").open_crates_io() end, desc = "Open crates.io" },
+
+        -- Trouble
+        ["<leader>x"] = { name = "Trouble" },
+        ["<leader>xx"] = { "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble" },
+        ["<leader>xd"] = {
+          "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+          desc = "Trouble Document",
+        },
+        ["<leader>xl"] = { "<cmd>Trouble loclist toggle<cr>", desc = "Trouble Location List" },
+        ["<leader>xq"] = { "<cmd>Trouble qflist toggle<cr>", desc = "Trouble Quickfix" },
+        ["<leader>xr"] = {
+          "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+          desc = "Trouble LSP References",
+        },
+        -- Todo
+        ["<leader>T"] = { name = "TODOs" },
+        ["<leader>Tt"] = { "<cmd>TodoTelescope<cr>", desc = "Open TODOs in Telescope" },
+        ["<leader>Tq"] = { "<cmd>TodoQuickFix<cr>", desc = "Open TODOs in QuickFix" },
+        ["<leader>Tx"] = { "<cmd>TodoTrouble<cr>", desc = "Open TODOs in Trouble" },
+        -- Telescope
+        ["gr"] = { "<cmd>Telescope lsp_references<cr>", desc = "Go to References" },
+        ["gs"] = { "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
+        ["<C-M-h>"] = { "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Call Hierarchy" },
       },
       t = {
         -- setting a mapping to false will disable it
