@@ -101,6 +101,7 @@ return {
   -- { import = "astrocommunity.editing-support.cutlass-nvim" }, -- Plugin that adds a 'cut' operation separate from 'delete'
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.vim-move" },
+  -- { import = "astrocommunity.editing-support.nvim-treesitter-context" },
 
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.pack.rust" },
