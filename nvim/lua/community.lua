@@ -118,7 +118,7 @@ return {
 
   { "echasnovski/mini.nvim", version = "*" },
   { import = "astrocommunity.indent.mini-indentscope" },
-
+  { import = "astrocommunity.motion.marks-nvim" },
   -- { import = "astrocommunity.workflow.precognition-nvim" },
 
   -- Personal Extensions
