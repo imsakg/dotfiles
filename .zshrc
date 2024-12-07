@@ -6,9 +6,9 @@ export CLICOLOR=1
 export COLORTERM=truecolor
 export DENO_INSTALL="/Users/msa/.deno"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export EDITOR=nvim
+export EDITOR="$(which nvim)"
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
-export GIT_EDITOR=nvim
+export GIT_EDITOR="$(which nvim)"
 export GREP_OPTIONS='--color=auto' GREP_COLORS='mt=1;32'
 export SKIM_DEFAULT_OPTIONS="--preview 'bat --color=always {}'"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
@@ -25,7 +25,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export TERM="xterm-256color"
 export TERMINAL="wezterm";
 export TODOTXT_DEFAULT_ACTION=ls
-export VISUAL=nvim
+export VISUAL="$(which nvim)"
 export ZSH="$HOME/.oh-my-zsh"
 export ZOXIDE_CMD_OVERRIDE="cd"
 
