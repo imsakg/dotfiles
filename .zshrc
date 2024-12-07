@@ -9,7 +9,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export EDITOR=nvim
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 export GIT_EDITOR=nvim
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export GREP_OPTIONS='--color=auto' GREP_COLORS='mt=1;32'
 export SKIM_DEFAULT_OPTIONS="--preview 'bat --color=always {}'"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export JAVA_HOME=$(/usr/libexec/java_home)
