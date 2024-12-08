@@ -16,18 +16,19 @@ family = "MonaSpace Argon"
 [fonts.MonaSpaceNeon]
 family = "MonaSpace Neon"
 
+
 [fonts.MonaSpaceKrypton]
 family = "MonaSpace Krypton"
 
 [fonts.MonaSpaceArgonVar]
 family = "MonaSpace Argon Var"
- 
+
 [fonts.MonaSpaceNeonVar]
 family = "MonaSpace Neon Var"
- 
+
 [fonts.MonaSpaceKryptonVar]
 family = "MonaSpace Krypton Var"
- 
+
 [fonts."Fira Code"]
 family = "Fira Code"
 
@@ -57,3 +58,12 @@ family = "Roboto Mono"
 
 [fonts."SF Mono"]
 family = "SF Mono"
+
+[fonts."M+1Code Nerd Font Mono"]
+family = "M+1Code Nerd Font Mono"
+
+[fonts."M+1 Nerd Font"]
+family = "M+1 Nerd Font"
+
+[fonts."M+1 Nerd Font Propo"]
+family = "M+1 Nerd Font Propo"

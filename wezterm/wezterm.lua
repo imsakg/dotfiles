@@ -44,12 +44,12 @@ if G.font.family == "Default" then
 	font = wezterm.font_with_fallback({})
 else
 	font = wezterm.font_with_fallback({
-		{ family = G.font.family, weight = G.font.weight or 400, italic = false },
+		{ family = G.font.family, weight = G.font.weight or 500, italic = false },
 	})
 end
 
 config.font_rules = { { intensity = "Bold", font = font }, { intensity = "Normal", font = font } }
-config.font_size = G.font.font_size or 16
+config.font_size = G.font.font_size or 14
 
 if G.OLED then
 	G.background = "#000000"
@@ -103,7 +103,6 @@ config.color_schemes = { ["CustomTheme"] = scheme }
 -- config.command_palette_bg_color = scheme.background
 -- config.command_palette_fg_color = scheme.foreground
 
-config.font_size = 14
 -- config.font_weight
 
 config.inactive_pane_hsb = {

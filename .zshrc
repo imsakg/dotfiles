@@ -366,3 +366,6 @@ $HOME/.cargo/bin:\
 $PATH"
 
 
+
+# bun completions
+[ -s "/Users/msa/.bun/_bun" ] && source "/Users/msa/.bun/_bun"
