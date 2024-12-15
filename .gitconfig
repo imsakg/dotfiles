@@ -109,6 +109,10 @@
 	patchit-please = "!f() { echo $1.patch | sed s_pull/[0-9]*/commits_commit_ | xargs curl -L | git am -3 --whitespace=fix; }; f"
 	# patchit-please = "!f() { curl -L $1.patch | git am -3 --whitespace=fix; }; f"
 
+	dlog = -c diff.external=difft log --ext-diff
+  dshow = -c diff.external=difft show --ext-diff
+  ddiff = -c diff.external=difft diff
+
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
 	#excludesfile = ~/.gitignore
@@ -124,6 +128,10 @@
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 	editor = nvim
+  attributesfile = ~/.gitattributes
+
+[pager]
+	difftool = true
 
 [interactive]
 	diffFilter = delta --color-only --features=interactive
@@ -174,7 +182,7 @@
 	# Detect copies as well as renames
 	renames = copies
   colorMoved = default
-
+  
 [difftool]
   prompt = false
 	trustExitCode = true
@@ -185,6 +193,10 @@
 [difftool "kitty.gui"]
 	cmd = kitty kitty +kitten diff $LOCAL $REMOTE
 
+[difftool "difftastic"]
+    # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
+    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+
 [help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
@@ -193,6 +205,11 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
   conflictstyle = diff3
+
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
+
 [push]
 	# change to maching for machines with older versions of git 1.x.x
 	default = simple
