@@ -87,12 +87,11 @@
   "dotenv.enableAutocloaking": false,
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
-  "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorSurroundingLines": 15,
   "editor.detectIndentation": true,
   "editor.foldingStrategy": "indentation",
-  "editor.fontFamily": "'Hack', 'Regular', Regular",
+  "editor.fontFamily": "'MonaSpace Krypton'",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.formatOnPaste": false,
@@ -103,7 +102,6 @@
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": false,
-  "editor.lineHeight": 0,
   // "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   "editor.minimap.autohide": true,
@@ -508,4 +506,10 @@
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
   "git.enableCommitSigning": true,
+  "workbench.fontAliasing": "auto",
+  "workbench.list.smoothScrolling": true,
+  "editor.smoothScrolling": true,
+  "vscode_custom_css.imports": [
+    "file:///Users/msa/.vscode/css/style.css"
+  ]
 }
