@@ -133,11 +133,34 @@ source /etc/profile
 [ -f .aliases ] && source .aliases
 [ -f .env ] && source .env
 
+export PATH="$HOME/.local/bin:\
+$BUN_INSTALL/bin:\
+$HOME/go/bin:\
+$DENO_INSTALL/bin:\
+$HOME/.dotnet/tools:\
+$HOME/.cargo/bin:\
+/opt/homebrew/opt/qt@5/bin:\
+/opt/homebrew/opt/qt@6/bin:\
+/opt/homebrew/opt/ruby/bin:\
+/opt/homebrew/opt/binutils/bin:\
+/opt/homebrew/opt/bison/bin:\
+/opt/homebrew/opt/gawk/libexec/gnubin:\
+/opt/homebrew/opt/gnu-getopt/bin:\
+/opt/homebrew/opt/gnu-tar/libexec/gnubin:\
+/opt/homebrew/opt/gnu-sed/libexec/gnubin:\
+/opt/homebrew/opt/make/libexec/gnubin:\
+/opt/homebrew/opt/texinfo/bin:\
+/usr/local/bin:\
+/usr/bin:\
+/usr/local/sbin:\
+$PATH"
+
+
 # Set homebrew by architecture
-if [[ $(uname) == "Darwin" ]]; then
+if [ "$(uname)" = "Darwin" ]; then
         if [ "$(arch)" = "arm64" ]; then
-                eval "$(/opt/homebrew/bin/brew shellenv)"
                 export FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
+                eval "$(/opt/homebrew/bin/brew shellenv)"
         else
                 export FPATH="$(/usr/local/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
                 eval "$(/usr/local/bin/brew shellenv)"
@@ -209,7 +232,7 @@ alias zel="zellij"
 alias zeldev="zellij --layout ~/.config/zellij/layouts/dev.kdl"
 
 # esp idf
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
+alias get_idf='source $HOME/esp/esp-idf/.venv/bin/activate && . $HOME/esp/esp-idf/export.sh'
 
 # gpg encryption
 # verify signature for isos
@@ -342,30 +365,6 @@ set_java_version() {
 
     java -version
 }
-
-export PATH="$HOME/.local/bin:\
-$BUN_INSTALL/bin:\
-$HOME/go/bin:\
-$DENO_INSTALL/bin:\
-$HOME/.dotnet/tools:\
-$HOME/.cargo/bin:\
-/opt/homebrew/opt/qt@5/bin:\
-/opt/homebrew/opt/qt@6/bin:\
-/opt/homebrew/opt/ruby/bin:\
-/opt/homebrew/opt/binutils/bin:\
-/opt/homebrew/opt/bison/bin:\
-/opt/homebrew/opt/gawk/libexec/gnubin:\
-/opt/homebrew/opt/gnu-getopt/bin:\
-/opt/homebrew/opt/gnu-tar/libexec/gnubin:\
-/opt/homebrew/opt/gnu-sed/libexec/gnubin:\
-/opt/homebrew/opt/make/libexec/gnubin:\
-/opt/homebrew/opt/texinfo/bin:\
-/usr/local/bin:\
-/usr/bin:\
-/usr/local/sbin:\
-$PATH"
-
-
 
 # bun completions
 [ -s "/Users/msa/.bun/_bun" ] && source "/Users/msa/.bun/_bun"
