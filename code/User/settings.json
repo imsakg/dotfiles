@@ -214,7 +214,7 @@
     "default": "right",
     "jupyter-notebook": "left"
   },
-  "python.defaultInterpreterPath": "/Users/msa/Desktop/vyvo/vai/.venv",
+  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
   "redhat.telemetry.enabled": false,
   "ruff.nativeServer": true,
   "rust-analyzer.check.command": "clippy",
