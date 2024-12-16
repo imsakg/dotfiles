@@ -4,7 +4,7 @@ export BUN_INSTALL="$HOME/.bun"
 export CHROME_EXECUTABLE="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
 export CLICOLOR=1
 export COLORTERM=truecolor
-export DENO_INSTALL="/Users/msa/.deno"
+export DENO_INSTALL="$HOME/.deno"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export EDITOR="$(which nvim)"
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
@@ -170,7 +170,7 @@ fi
 # Load OMZ
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
-source /Users/msa/.config/broot/launcher/bash/br
+source "$HOME/.config/broot/launcher/bash/br"
 [[ $- == *i* ]] && source "/opt/homebrew/opt/sk/share/zsh/site-functions/completion.zsh" 2> /dev/null
 source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
 
@@ -367,4 +367,4 @@ set_java_version() {
 }
 
 # bun completions
-[ -s "/Users/msa/.bun/_bun" ] && source "/Users/msa/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
