@@ -93,7 +93,6 @@ plugins=(
         eza
         fancy-ctrl-z
         fast-syntax-highlighting
-        # fnm
         fzf
         gh
         git
@@ -177,7 +176,7 @@ source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
 # Prompt
 eval "$(starship init zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
-# eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd)"
 eval "$(ngrok completion)"
 eval "$(procs --gen-completion-out zsh)"
 eval "$(sqlx completions zsh)"
