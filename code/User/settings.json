@@ -511,5 +511,6 @@
   "editor.smoothScrolling": true,
   "vscode_custom_css.imports": [
     "file:///Users/msa/.vscode/css/style.css"
-  ]
+  ],
+  "workbench.panel.showLabels": false
 }
