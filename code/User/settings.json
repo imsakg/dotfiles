@@ -487,7 +487,6 @@
   "window.zoomPerWindow": false,
   // windsurf
   "windsurf.autocompleteSpeed": "fast",
-  "workbench.activityBar.location": "top",
   // "workbench.activityBar.location": "hidden",
   "workbench.auxiliaryActivityBar.location": "top",
   "workbench.colorTheme": "Default Dark+",
@@ -501,7 +500,6 @@
   "workbench.preferredLightColorTheme": "Xcode Classic (Light)",
   "workbench.startupEditor": "none",
   "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": false,
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
@@ -512,5 +510,24 @@
   "vscode_custom_css.imports": [
     "file:///Users/msa/.vscode/css/style.css"
   ],
-  "workbench.panel.showLabels": false
+  "workbench.panel.showLabels": false,
+  "zenMode.fullScreen": false,
+  "workbench.activityBar.location": "hidden",
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
+    "*.dart": "${capture}.g.dart",
+    "Cargo.toml": "Cargo.lock",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.s3db": "${capture}.${extname}-*"
+  }
 }

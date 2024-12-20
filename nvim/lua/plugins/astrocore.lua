@@ -49,7 +49,7 @@ return {
         lsp_handlers_enabled = true, -- enable or disable default vim.lsp.handlers (hover and signature help)
         icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
         ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-        -- mkdp_browser = "vivaldi", -- use Firefox for markdown preview
+        mkdp_browser = "Vivaldi",
         silicon = {
           background = "#191a21",
           ["window-controls"] = false,
