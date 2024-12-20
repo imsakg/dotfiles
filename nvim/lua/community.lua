@@ -26,6 +26,9 @@ return {
   },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
 
+  { import = "astrocommunity.completion.blink-cmp" },
+  { import = "astrocommunity.completion.cmp-cmdline" },
+  { import = "astrocommunity.completion.cmp-calc" },
   {
     -- further customize the options set by the community
     import = "astrocommunity.completion.copilot-lua-cmp",
