@@ -7,3 +7,13 @@ msa's holy dotfiles.
 ```bash
 rm -rf ~/.config/zellij && ln -s "$PWD/zellij" ~/.config/
 ```
+
+## Showcase
+
+### Wezterm
+
+![Wezterm](assets/wezterm.jpg)
+
+### Neovim
+
+![Neovim](assets/neovim.jpg)
