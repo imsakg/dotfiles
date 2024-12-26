@@ -285,6 +285,9 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias dirs='dirs -v'
 
+# proxyman
+alias proxyman-enable='set -a && source "/Users/msa/.proxyman/proxyman_env_automatic_setup.sh" && set +a'
+
 # other aliases
 alias bunrd="bun run dev"
 alias bunrdo="bun run dev -- --open"
