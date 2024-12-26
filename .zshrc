@@ -288,7 +288,7 @@ alias dirs='dirs -v'
 # other aliases
 alias bunrd="bun run dev"
 alias bunrdo="bun run dev -- --open"
-alias cargo-update-bin='cargo install --locked $(cargo install --list | egrep "^[a-z0-9_-]+ v[0-9.]+:$" | cut -f1 -d" ")'
+alias cargo-update-bin='cargo install --list | egrep "^[a-z0-9_-]+ v[0-9.]+:$" | cut -f1 -d" " | xargs -n1 cargo install --locked'
 alias cg='cargo'
 alias nv="nvim ."
 alias n=nvim
