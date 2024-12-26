@@ -2,12 +2,6 @@
 
 msa's holy dotfiles.
 
-## Example Usage
-
-```bash
-rm -rf ~/.config/zellij && ln -s "$PWD/zellij" ~/.config/
-```
-
 ## Showcase
 
 ### Wezterm
@@ -17,3 +11,9 @@ rm -rf ~/.config/zellij && ln -s "$PWD/zellij" ~/.config/
 ### Neovim
 
 ![Neovim](assets/neovim.jpg)
+
+## Example Usage
+
+```bash
+rm -rf ~/.config/zellij && ln -s "$PWD/zellij" ~/.config/
+```
