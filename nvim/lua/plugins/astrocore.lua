@@ -49,7 +49,7 @@ return {
         lsp_handlers_enabled = true, -- enable or disable default vim.lsp.handlers (hover and signature help)
         icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
         ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-        mkdp_browser = "Vivaldi",
+        -- mkdp_browser = "Vivaldi",
         silicon = {
           background = "#191a21",
           ["window-controls"] = false,
@@ -101,6 +101,8 @@ return {
           function() require("astrocore.buffer").nav(-vim.v.count1) end,
           desc = "Previous buffer",
         },
+
+        ["<Leader>:"] = { "<cmd>FineCmdline<cr>", desc = "FineCmdline" },
 
         -- Disable for vim-visual-multi
         ["C-up"] = { "<nop>", desc = "Disable" },
@@ -217,9 +219,11 @@ return {
         ["<C-q>"] = { "<esc>:qa!<cr>", desc = "Exit" },
       },
       v = {
+        -- Enter key
+        ["<CR>"] = { "y/<C-R>*<CR>", desc = "Search Selection" },
         ["<Leader>p"] = { '"0p', desc = "Paste without replacing the buffer" },
         ["<C-r>"] = { '"hy:%s/<C-r>h//gc<left><left><left>', desc = "Replace" },
-        ["<Leader>S"] = { ":'<,'>Silicon<cr>", desc = "Save image" },
+        -- ["<Leader>S"] = { ":'<,'>Silicon<cr>", desc = "Save image" },
       },
     },
   },

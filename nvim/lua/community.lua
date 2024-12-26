@@ -26,26 +26,32 @@ return {
   },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
 
+  { import = "astrocommunity.color.ccc-nvim" },
+
   { import = "astrocommunity.completion.blink-cmp" },
-  { import = "astrocommunity.completion.cmp-cmdline" },
+  -- { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.cmp-calc" },
-  {
-    -- further customize the options set by the community
-    import = "astrocommunity.completion.copilot-lua-cmp",
-    opts = {
-      suggestion = {
-        keymap = {
-          accept = "<C-l>",
-          accept_word = "<C-J>",
-          accept_line = false,
-          next = "<C-.>",
-          prev = "<C-,>",
-          dismiss = "<C/>",
-        },
-      },
-    },
-  },
-  -- { "github/copilot.vim" },
+  -- { import = "astrocommunity.completion.mini-completion" },
+
+  { import = "astrocommunity.lsp.actions-preview-nvim" },
+
+  -- {
+  --   -- further customize the options set by the community
+  --   import = "astrocommunity.completion.copilot-lua-cmp",
+  --   opts = {
+  --     suggestion = {
+  --       keymap = {
+  --         accept = "<C-l>",
+  --         accept_word = "<C-J>",
+  --         accept_line = false,
+  --         next = "<C-.>",
+  --         prev = "<C-,>",
+  --         dismiss = "<C/>",
+  --       },
+  --     },
+  --   },
+  -- },
+  { "github/copilot.vim" },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
 
   -- Packs
@@ -92,6 +98,10 @@ return {
     colorcolumn = 120,
   } },
 
+  { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
+  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  { import = "astrocommunity.bars-and-lines.statuscol-nvim" }, -- collapser
+  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.search.nvim-spectre" },
 
   { import = "astrocommunity.code-runner.overseer-nvim" },
@@ -120,6 +130,11 @@ return {
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.note-taking.neorg" },
   { import = "astrocommunity.note-taking.global-note-nvim" },
+
+  { import = "astrocommunity.media.codesnap-nvim" },
+  { import = "astrocommunity.media.img-clip-nvim" },
+  { import = "astrocommunity.media.vim-wakatime" },
+  { import = "astrocommunity.media.drop-nvim" },
 
   { "echasnovski/mini.nvim", version = "*" },
   { import = "astrocommunity.indent.mini-indentscope" },
@@ -213,7 +228,6 @@ return {
   "frazrepo/vim-rainbow",
   "PotatoesMaster/i3-vim-syntax",
   "WhoIsSethDaniel/mason-tool-installer.nvim",
-  "wakatime/vim-wakatime",
   {
     "NStefan002/screenkey.nvim",
     lazy = false,
@@ -271,4 +285,15 @@ return {
       },
     },
   },
+
+  -- {
+  --   import = "astrocommunity.game.leetcode-nvim",
+  --   opts = {
+  --     lang = "rust",
+  --
+  --     storage = {
+  --       home = "~/msa/competitive_programming/" .. "/leetcode-nvim",
+  --     },
+  --   },
+  -- },
 }
