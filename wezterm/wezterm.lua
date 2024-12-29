@@ -50,6 +50,7 @@ end
 
 config.font_rules = { { intensity = "Bold", font = font }, { intensity = "Normal", font = font } }
 config.font_size = G.font.font_size or 14
+config.line_height = 1.0
 
 if G.OLED then
 	G.background = "#000000"
@@ -115,14 +116,17 @@ config.cursor_blink_rate = 800
 config.cursor_blink_ease_in = "Linear"
 config.cursor_blink_ease_out = "Linear"
 config.hide_mouse_cursor_when_typing = true
-config.animation_fps = 60
+config.animation_fps = 120
+config.max_fps = 120
+config.prefer_egl = true
+
 config.tiling_desktop_environments = { "X11 i3" }
 
 -- ENV
 config.set_environment_variables = { PATH = "/opt/homebrew/bin:" .. os.getenv("PATH") }
 
 config.window_padding = G.padding
-config.macos_window_background_blur = 50
+config.macos_window_background_blur = 30
 config.window_background_opacity = G.opacity
 config.adjust_window_size_when_changing_font_size = false
 config.initial_cols = 100

@@ -28,8 +28,8 @@ return {
 
   { import = "astrocommunity.color.ccc-nvim" },
 
-  { import = "astrocommunity.completion.blink-cmp" },
-  -- { import = "astrocommunity.completion.cmp-cmdline" },
+  -- { import = "astrocommunity.completion.blink-cmp" },
+  { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.cmp-calc" },
   -- { import = "astrocommunity.completion.mini-completion" },
 
@@ -94,14 +94,17 @@ return {
   { import = "astrocommunity.colorscheme.nightfox-nvim", enabled = false },
   { import = "astrocommunity.colorscheme.kanagawa-nvim", enabled = true },
   { import = "astrocommunity.colorscheme.rose-pine" },
-  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim", opts = {
-    colorcolumn = 120,
-  } },
+  {
+    import = "astrocommunity.bars-and-lines.smartcolumn-nvim",
+    opts = {
+      colorcolumn = 120,
+    },
+  },
 
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.bars-and-lines.statuscol-nvim" }, -- collapser
-  { import = "astrocommunity.bars-and-lines.vim-illuminate" },
+  -- { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.search.nvim-spectre" },
 
   { import = "astrocommunity.code-runner.overseer-nvim" },
@@ -139,6 +142,7 @@ return {
   { "echasnovski/mini.nvim", version = "*" },
   { import = "astrocommunity.indent.mini-indentscope" },
   { import = "astrocommunity.motion.marks-nvim" },
+  { import = "astrocommunity.motion.hop-nvim" },
   -- { import = "astrocommunity.workflow.precognition-nvim" },
 
   -- Personal Extensions

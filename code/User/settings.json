@@ -102,8 +102,6 @@
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": false,
-  // "editor.lineNumbers": "relative",
-  "editor.linkedEditing": true,
   "editor.minimap.autohide": true,
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
@@ -440,6 +438,16 @@
         "workbench.files.action.focusFilesExplorer"
       ],
     },
+    {
+      "before": [
+        "s"
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "s",
+      ]
+    }
     // {
     //   "before": [
     //     "<leader>",
