@@ -126,7 +126,7 @@ config.tiling_desktop_environments = { "X11 i3" }
 config.set_environment_variables = { PATH = "/opt/homebrew/bin:" .. os.getenv("PATH") }
 
 config.window_padding = G.padding
-config.macos_window_background_blur = 30
+config.macos_window_background_blur = 40
 config.window_background_opacity = G.opacity
 config.adjust_window_size_when_changing_font_size = false
 config.initial_cols = 100
