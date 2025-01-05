@@ -237,6 +237,31 @@ config.keys = {
 		action = wezterm.action.DisableDefaultAssignment,
 	},
 	{
+		key = "F1",
+		action = wezterm.action.DisableDefaultAssignment,
+		mods = "",
+	},
+	{
+		key = "F2",
+		mods = "",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		mods = "",
+		key = "F3",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "F4",
+		mods = "",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
+		key = "F5",
+		mods = "",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
 		key = "j",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.DisableDefaultAssignment,
