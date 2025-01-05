@@ -1,10 +1,5 @@
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- Here are some examples:
-
 ---@type LazySpec
 return {
-
-  -- == Examples of Adding Plugins ==
 
   "andweeb/presence.nvim",
   {
@@ -13,13 +8,26 @@ return {
     config = function() require("lsp_signature").setup() end,
   },
 
-  -- == Examples of Overriding Plugins ==
-
-  -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
+      table.insert(opts.section.buttons.val, opts.button("ng", "📝 Open Global Note", ":GlobalNote<CR>"))
+      table.insert(
+        opts.section.buttons.val,
+        opts.button(
+          "no",
+          "🔮 Open Obsidian Vault",
+          ":cd /Users/msa/Library/Mobile Documents/iCloud~md~obsidian/Documents/msa-verse<CR>"
+        )
+      )
+      table.insert(opts.section.buttons.val, opts.button("h", "👋 Say Hi", ':echo "Hello World!"<CR>'))
+      table.insert(opts.section.buttons.val, opts.button("cz", "🔧 Configure ZSH", ":e ~/.zshrc<CR>"))
+      table.insert(
+        opts.section.buttons.val,
+        opts.button("cw", "🔧 Configure Wezterm", ":e ~/.config/wezterm/wezterm.lua<CR>")
+      )
+      table.insert(opts.section.buttons.val, opts.button("r", "🔃 Relaod Config", ":AstroReload<CR>"))
       opts.section.header.val = {
         "• ▌ ▄ ·. .▄▄ ·  ▄▄▄· ",
         "·██ ▐███▪▐█ ▀. ▐█ ▀█ ",
@@ -31,10 +39,6 @@ return {
     end,
   },
 
-  -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false },
-
-  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
@@ -68,6 +72,22 @@ return {
             :with_del(cond.not_after_regex "xx")
             -- disable adding a newline when you press <cr>
             :with_cr(cond.none()),
+          Rule(" ", " "):with_pair(function(options)
+            local pair = options.line:sub(options.col - 1, options.col)
+            return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+          end),
+          Rule("( ", " )")
+            :with_pair(function() return false end)
+            :with_move(function(options) return options.prev_char:match ".%)" ~= nil end)
+            :use_key ")",
+          Rule("{ ", " }")
+            :with_pair(function() return false end)
+            :with_move(function(options) return options.prev_char:match ".%}" ~= nil end)
+            :use_key "}",
+          Rule("[ ", " ]")
+            :with_pair(function() return false end)
+            :with_move(function(options) return options.prev_char:match ".%]" ~= nil end)
+            :use_key "]",
         },
         -- disable for .vim files, but it work for another filetypes
         Rule("a", "a", "-vim")

@@ -28,30 +28,28 @@ return {
 
   { import = "astrocommunity.color.ccc-nvim" },
 
-  -- { import = "astrocommunity.completion.blink-cmp" },
-  { import = "astrocommunity.completion.cmp-cmdline" },
+  -- { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.cmp-calc" },
   -- { import = "astrocommunity.completion.mini-completion" },
 
   { import = "astrocommunity.lsp.actions-preview-nvim" },
-
-  -- {
-  --   -- further customize the options set by the community
-  --   import = "astrocommunity.completion.copilot-lua-cmp",
-  --   opts = {
-  --     suggestion = {
-  --       keymap = {
-  --         accept = "<C-l>",
-  --         accept_word = "<C-J>",
-  --         accept_line = false,
-  --         next = "<C-.>",
-  --         prev = "<C-,>",
-  --         dismiss = "<C/>",
-  --       },
-  --     },
-  --   },
-  -- },
-  { "github/copilot.vim" },
+  { import = "astrocommunity.lsp.lspsaga-nvim" },
+  {
+    -- further customize the options set by the community
+    import = "astrocommunity.completion.copilot-lua-cmp",
+    opts = {
+      suggestion = {
+        keymap = {
+          accept = "<C-l>",
+          accept_word = "<C-J>",
+          accept_line = false,
+          next = "<C-.>",
+          prev = "<C-,>",
+          dismiss = "<C/>",
+        },
+      },
+    },
+  },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
 
   -- Packs
@@ -81,11 +79,12 @@ return {
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.pack.typescript-all-in-one" },
   -- { import = "astrocommunity.pack.vue" },
   -- { import = "astrocommunity.pack.wgsl" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.zig" },
+
+  { import = "astrocommunity.register/nvim-neoclip-lua" },
   -- Markdown - Latex
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
@@ -102,7 +101,6 @@ return {
   },
 
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.bars-and-lines.statuscol-nvim" }, -- collapser
   -- { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.search.nvim-spectre" },
@@ -131,7 +129,9 @@ return {
   { import = "astrocommunity.colorscheme.github-nvim-theme" },
   { import = "astrocommunity.recipes.heirline-mode-text-statusline" },
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
-  { import = "astrocommunity.note-taking.neorg" },
+  { import = "astrocommunity.recipes.vscode" },
+  { import = "astrocommunity.recipes.cache-colorscheme" },
+
   { import = "astrocommunity.note-taking.global-note-nvim" },
 
   { import = "astrocommunity.media.codesnap-nvim" },
@@ -258,38 +258,6 @@ return {
       },
     },
   },
-  {
-    "nvim-neorg/neorg",
-    cmd = "Neorg", -- lazy load on command, allows you to autocomplete :Neorg regardless of whether it's loaded yet
-    --  (you could also just remove both lazy loading things)
-    priority = 30, -- treesitter is on default priority of 50, neorg should load after it.
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {},
-        },
-      }
-    end,
-
-    opts = {
-      load = {
-        ["core.journal"] = {
-          config = {
-            workspace = "notes",
-            dir = "~/Documents/Notes/Journal",
-          },
-        },
-        ["core.dirman"] = { -- Manages Neorg workspaces
-          config = {
-            workspaces = {
-              notes = "~/Documents/Notes",
-            },
-          },
-        },
-      },
-    },
-  },
-
   -- {
   --   import = "astrocommunity.game.leetcode-nvim",
   --   opts = {

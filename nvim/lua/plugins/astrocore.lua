@@ -34,6 +34,7 @@ return {
         ignorecase = true, -- sets vim.opt.ignorecase
         modifiable = true,
         autoread = true,
+        conceallevel = 2,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -104,6 +105,9 @@ return {
 
         ["<Leader>:"] = { "<cmd>FineCmdline<cr>", desc = "FineCmdline" },
 
+        ["<Leader>fA"] = { "<Cmd>AstroRoot<cr>", desc = "Set root directory" },
+        ["<Leader>pR"] = { "<Cmd>AstroReload<cr>", desc = "Reload AstroNvim" },
+
         -- Disable for vim-visual-multi
         ["C-up"] = { "<nop>", desc = "Disable" },
         ["C-down"] = { "<nop>", desc = "Disable" },
@@ -134,6 +138,14 @@ return {
         ["<Leader>fyc"] = { function() require("utils.fs").rel_path() end, desc = "Copy current file relative path" },
         ["<Leader>fya"] = { function() require("utils.fs").abs_path() end, desc = "Copy current file absolute path" },
 
+        ["<Leader>c"] = {
+          function()
+            local bufs = vim.fn.getbufinfo { buflisted = true }
+            require("astrocore.buffer").close(0)
+            if require("astrocore").is_available "alpha-nvim" and not bufs[2] then require("alpha").start() end
+          end,
+          desc = "Close buffer",
+        },
         -- mappings seen under group name "Buffer"
         ["<Leader>bD"] = {
           function()
@@ -186,13 +198,13 @@ return {
 
         -- Trouble
         ["<leader>x"] = { name = "Trouble" },
-        ["<leader>xx"] = { "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble" },
-        ["<leader>xd"] = {
+        ["<leader>xX"] = { "<cmd>Trouble diagnostics toggle<cr>", desc = "Trouble" },
+        ["<leader>xx"] = {
           "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
           desc = "Trouble Document",
         },
         ["<leader>xl"] = { "<cmd>Trouble loclist toggle<cr>", desc = "Trouble Location List" },
-        ["<leader>xq"] = { "<cmd>Trouble qflist toggle<cr>", desc = "Trouble Quickfix" },
+        ["<leader>xq"] = { "<cmd>Trouble quickfix toggle<cr>", desc = "Trouble Quickfix" },
         ["<leader>xr"] = {
           "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
           desc = "Trouble LSP References",
