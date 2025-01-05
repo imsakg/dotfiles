@@ -3,8 +3,8 @@
 	> .items-container
 	> .statusbar-item
 	> .statusbar-item-label {
-	background-color: #bc92f8;
-	color: #282a36;
+	background-color: #121212;
+	color: #2ba198;
 	font-weight: 600;
 	border-radius: 4px;
 	font-size: 13px;
@@ -74,7 +74,7 @@ a.action-label.codicon.codicon-toolbar-more {
 [aria-label^="Ln"] {
 	/*background-color: #21222C !important;*/
 	color: #e5e5e5 !important;
-	background-color: #535c90 !important;
+	background-color: #083642 !important;
 }
 
 .letterpress {

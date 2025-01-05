@@ -63,11 +63,6 @@
     "when": "editorTextFocus"
   },
   {
-    "command": "-extension.vim_tab",
-    "key": "tab",
-    "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
-  },
-  {
     "command": "workbench.action.quickOpenSelectNext",
     "key": "ctrl+j",
     "when": "inQuickOpen"
