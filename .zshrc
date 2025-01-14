@@ -152,6 +152,7 @@ $HOME/.cargo/bin:\
 /usr/local/bin:\
 /usr/bin:\
 /usr/local/sbin:\
+/Users/msa/.cache/lm-studio/bin\
 $PATH"
 
 
@@ -172,6 +173,7 @@ fi
 source "$HOME/.config/broot/launcher/bash/br"
 [[ $- == *i* ]] && source "/opt/homebrew/opt/sk/share/zsh/site-functions/completion.zsh" 2> /dev/null
 source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # Prompt
 eval "$(starship init zsh)"
@@ -367,6 +369,3 @@ set_java_version() {
 
     java -version
 }
-
-# bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

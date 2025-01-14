@@ -7,8 +7,8 @@ family = "CommitMono"
 [fonts.Default]
 family = "Default"
 
-[fonts.JetBrainsMono]
-family = "JetBrainsMono Nerd Font"
+[fonts."JetBrainsMono Nerd Font Mono"]
+family = "JetBrainsMono Nerd Font Mono"
 
 [fonts.MonaSpaceArgon]
 family = "MonaSpace Argon"

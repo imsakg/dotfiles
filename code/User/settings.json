@@ -91,7 +91,7 @@
   "editor.cursorSurroundingLines": 15,
   "editor.detectIndentation": true,
   "editor.foldingStrategy": "indentation",
-  "editor.fontFamily": "'MonaSpace Krypton'",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.formatOnPaste": false,
@@ -241,7 +241,7 @@
   "terminal.external.osxExec": "kitty",
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
-  "terminal.integrated.fontFamily": "Hack Nerd Font",
+  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono'",
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
   "terminal.integrated.showExitAlert": false,
   "terminal.integrated.suggest.enabled": true,
@@ -406,6 +406,17 @@
     {
       "before": [
         "<leader>",
+        "l",
+        "S"
+      ],
+      "commands": [
+        "workbench.action.showAllSymbols"
+      ],
+      "when": "vim.mode == 'Normal' && editorTextFocus"
+    },
+    {
+      "before": [
+        "<leader>",
         "f",
         "'"
       ],
@@ -511,7 +522,6 @@
     "git-rebase-todo": "default"
   },
   "workbench.layoutControl.enabled": false,
-  "workbench.preferredLightColorTheme": "Xcode Classic (Light)",
   "workbench.startupEditor": "none",
   "zenMode.centerLayout": false,
   "zenMode.hideLineNumbers": false,
@@ -526,7 +536,6 @@
   ],
   "workbench.panel.showLabels": false,
   "zenMode.fullScreen": false,
-  "workbench.activityBar.location": "hidden",
   "explorer.fileNesting.patterns": {
     "*.ts": "${capture}.js",
     "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
@@ -544,5 +553,5 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "workbench.preferredDarkColorTheme": "Kanagawa Black"
+  "workbench.activityBar.location": "hidden"
 }
