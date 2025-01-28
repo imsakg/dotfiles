@@ -167,8 +167,8 @@ config.keys = {
 		mods = "CMD",
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
-	{ key = "k", mods = "CMD|CTRL", action = wezterm.action_callback(features.theme_switcher) },
-	{ key = "f", mods = "CMD|CTRL", action = wezterm.action_callback(features.font_switcher) },
+	{ key = "k", mods = "CMD|SHIFT", action = wezterm.action_callback(features.theme_switcher) },
+	{ key = "f", mods = "CMD|SHIFT", action = wezterm.action_callback(features.font_switcher) },
 	{ key = "p", mods = "CMD", action = wezterm.action.ShowTabNavigator },
 	{ key = "P", mods = "CMD", action = wezterm.action.ShowLauncher },
 	-- Rebind OPT-Left, OPT-Right as ALT-b, ALT-f respectively to match Terminal.app behavior
@@ -331,7 +331,18 @@ config.keys = {
 		action = wezterm.action.ActivatePaneDirection("Right"),
 	},
 	{
+		key = "l",
+		mods = "CMD|CTRL",
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+
+	{
 		key = "LeftArrow",
+		mods = "CMD|CTRL",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "h",
 		mods = "CMD|CTRL",
 		action = wezterm.action.ActivatePaneDirection("Left"),
 	},
@@ -341,11 +352,20 @@ config.keys = {
 		action = wezterm.action.ActivatePaneDirection("Up"),
 	},
 	{
+		key = "k",
+		mods = "CMD|CTRL",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
 		key = "DownArrow",
 		mods = "CMD|CTRL",
 		action = wezterm.action.ActivatePaneDirection("Down"),
 	},
-
+	{
+		key = "j",
+		mods = "CMD|CTRL",
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
 	{
 		key = "RightArrow",
 		mods = "CMD|SHIFT",

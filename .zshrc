@@ -174,6 +174,7 @@ source "$HOME/.config/broot/launcher/bash/br"
 [[ $- == *i* ]] && source "/opt/homebrew/opt/sk/share/zsh/site-functions/completion.zsh" 2> /dev/null
 source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+source "$HOME/.rye/env"
 
 # Prompt
 eval "$(starship init zsh)"
@@ -298,7 +299,6 @@ alias cg='cargo'
 alias nv="nvim ."
 alias n=nvim
 alias sql="sqlite3"
-alias python=python3
 alias uvpip='uv pip'
 alias uvv='uv venv && source venv/bin/activate'
 alias venv="source .venv/bin/activate"
@@ -319,6 +319,16 @@ unalias tldr
 unalias yolo
 
 # FUNCTIONS
+
+y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
 docker-ip() {
   docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
 }

@@ -215,7 +215,7 @@ return {
         ["<leader>Tq"] = { "<cmd>TodoQuickFix<cr>", desc = "Open TODOs in QuickFix" },
         ["<leader>Tx"] = { "<cmd>TodoTrouble<cr>", desc = "Open TODOs in Trouble" },
         -- Telescope
-        ["gr"] = { "<cmd>Telescope lsp_references<cr>", desc = "Go to References" },
+        ["grR"] = { "<cmd>Telescope lsp_references<cr>", desc = "Go to References" },
         ["gs"] = { "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
         ["<C-M-h>"] = { "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Call Hierarchy" },
       },

@@ -322,6 +322,15 @@
         "workbench.action.files.save"
       ]
     },
+    {
+      "before": [
+        "<leader>",
+        "o"
+      ],
+      "commands": [
+        "revealInExplorer"
+      ]
+    },
     // {
     //   "before": [
     //     "<leader>",
@@ -432,7 +441,7 @@
       ],
       "commands": [
         "workbench.action.closeActiveEditor"
-      ],
+      ]
     },
     {
       "before": [
@@ -442,7 +451,7 @@
       "commands": [
         "workbench.action.toggleSidebarVisibility",
         "workbench.files.action.focusFilesExplorer"
-      ],
+      ]
     },
     {
       "before": [
@@ -451,7 +460,7 @@
       "after": [
         "leader",
         "leader",
-        "s",
+        "s"
       ]
     },
     {
@@ -503,15 +512,13 @@
       "commands": [
         "editor.action.commentLine"
       ]
-    },
+    }
   ],
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
   "window.systemColorTheme": "auto",
   "window.zoomPerWindow": false,
-  // windsurf
-  "windsurf.autocompleteSpeed": "fast",
   // "workbench.activityBar.location": "hidden",
   "workbench.auxiliaryActivityBar.location": "top",
   "workbench.colorTheme": "Default Dark+",
@@ -553,5 +560,6 @@
     "*.sdb": "${capture}.${extname}-*",
     "*.s3db": "${capture}.${extname}-*"
   },
-  "workbench.activityBar.location": "hidden"
+  "explorer.compactFolders": false,
+  "explorer.autoReveal": false
 }

@@ -24,9 +24,6 @@ return {
       },
     },
   },
-  { import = "astrocommunity.colorscheme.nightfox", enabled = false },
-
-  { import = "astrocommunity.color.ccc-nvim" },
 
   -- { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.cmp-calc" },
@@ -50,6 +47,7 @@ return {
       },
     },
   },
+  -- { import = "astrocommunity.completion.avante-nvim" },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
 
   -- Packs
@@ -137,7 +135,7 @@ return {
   { import = "astrocommunity.media.codesnap-nvim" },
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.media.vim-wakatime" },
-  { import = "astrocommunity.media.drop-nvim" },
+  -- { import = "astrocommunity.media.drop-nvim" }, -- Animation
 
   { "echasnovski/mini.nvim", version = "*" },
   { import = "astrocommunity.indent.mini-indentscope" },
