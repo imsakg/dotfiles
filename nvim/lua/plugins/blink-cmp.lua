@@ -77,12 +77,14 @@ return {
   "Saghen/blink.cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   version = "0.*",
-  dependencies = { "rafamadriz/friendly-snippets", "giuxtaposition/blink-cmp-copilot" },
+  -- dependencies = { "rafamadriz/friendly-snippets", "giuxtaposition/blink-cmp-copilot" },
+  dependencies = { "rafamadriz/friendly-snippets" },
   opts_extend = { "sources.default", "sources.cmdline" },
   opts = {
     -- remember to enable your providers here
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "copilot" },
+      -- default = { "lsp", "path", "snippets", "buffer", "copilot" },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
     keymap = {
       ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -182,12 +184,12 @@ return {
                   default = { "lazydev" },
                   providers = {
                     lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
-                    copilot = {
-                      name = "copilot",
-                      module = "blink-cmp-copilot",
-                      score_offset = 100,
-                      async = true,
-                    },
+                    -- copilot = {
+                    --   name = "copilot",
+                    --   module = "blink-cmp-copilot",
+                    --   score_offset = 100,
+                    --   async = true,
+                    -- },
                   },
                 },
               })

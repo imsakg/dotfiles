@@ -31,22 +31,22 @@ return {
 
   { import = "astrocommunity.lsp.actions-preview-nvim" },
   { import = "astrocommunity.lsp.lspsaga-nvim" },
-  {
-    -- further customize the options set by the community
-    import = "astrocommunity.completion.copilot-lua-cmp",
-    opts = {
-      suggestion = {
-        keymap = {
-          accept = "<C-l>",
-          accept_word = "<C-J>",
-          accept_line = false,
-          next = "<C-.>",
-          prev = "<C-,>",
-          dismiss = "<C/>",
-        },
-      },
-    },
-  },
+  -- {
+  --   -- further customize the options set by the community
+  --   import = "astrocommunity.completion.copilot-lua-cmp",
+  --   opts = {
+  --     suggestion = {
+  --       keymap = {
+  --         accept = "<C-l>",
+  --         accept_word = "<C-J>",
+  --         accept_line = false,
+  --         next = "<C-.>",
+  --         prev = "<C-,>",
+  --         dismiss = "<C/>",
+  --       },
+  --     },
+  --   },
+  -- },
   -- { import = "astrocommunity.completion.avante-nvim" },
   -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
 

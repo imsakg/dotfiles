@@ -220,7 +220,6 @@ alias ls='eza -l --icons --git --octal-permissions --color=always --no-permissio
 alias df="duf"
 alias du="dust"
 alias imgcat="wezterm imgcat"
-alias ping="gping"
 
 # |======  Bat for man pages  ======|
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'

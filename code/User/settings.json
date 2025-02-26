@@ -561,5 +561,6 @@
     "*.s3db": "${capture}.${extname}-*"
   },
   "explorer.compactFolders": false,
-  "explorer.autoReveal": false
+  "explorer.autoReveal": false,
+  "workbench.activityBar.location": "hidden"
 }
