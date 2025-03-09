@@ -153,8 +153,11 @@ $HOME/.cargo/bin:\
 /usr/bin:\
 /usr/local/sbin:\
 /Users/msa/.cache/lm-studio/bin\
+/opt/homebrew/opt/llvm/bin\
 $PATH"
 
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 
 # Set homebrew by architecture
 if [ "$(uname)" = "Darwin" ]; then
