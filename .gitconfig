@@ -129,6 +129,7 @@
 	trustctime = false
 	editor = nvim
   attributesfile = ~/.gitattributes
+	autocrlf = false
 
 [pager]
 	difftool = true

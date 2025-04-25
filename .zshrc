@@ -115,7 +115,6 @@ plugins=(
         rust
         screen
         ssh
-        systemd
         thefuck
         torrent
         urltools
@@ -143,18 +142,17 @@ $HOME/.cargo/bin:\
 /opt/homebrew/opt/ruby/bin:\
 /opt/homebrew/opt/binutils/bin:\
 /opt/homebrew/opt/bison/bin:\
-/opt/homebrew/opt/gawk/libexec/gnubin:\
-/opt/homebrew/opt/gnu-getopt/bin:\
-/opt/homebrew/opt/gnu-tar/libexec/gnubin:\
-/opt/homebrew/opt/gnu-sed/libexec/gnubin:\
-/opt/homebrew/opt/make/libexec/gnubin:\
 /opt/homebrew/opt/texinfo/bin:\
 /usr/local/bin:\
 /usr/bin:\
 /usr/local/sbin:\
-/Users/msa/.cache/lm-studio/bin\
-/opt/homebrew/opt/llvm/bin\
+/Users/msa/.cache/lm-studio/bin:\
+/opt/homebrew/opt/llvm/bin:\
 $PATH"
+
+# GNU Coreutils
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
 
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
@@ -381,3 +379,7 @@ set_java_version() {
 
     java -version
 }
+
+
+# bun completions
+[ -s "/Users/msa/.bun/_bun" ] && source "/Users/msa/.bun/_bun"

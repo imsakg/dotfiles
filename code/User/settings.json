@@ -54,6 +54,7 @@
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": true,
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -101,8 +102,6 @@
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.largeFileOptimizations": false,
-  "editor.minimap.autohide": true,
-  "editor.minimap.enabled": false,
   "workbench.editor.closeEmptyGroups": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.tabCompletion": "on",
@@ -111,7 +110,6 @@
   "prettier.trailingComma": "es5",
   "prettier.arrowParens": "always",
   "editor.wordBasedSuggestions": "off",
-  "editor.quickSuggestionsDelay": 1000000,
   "editor.parameterHints.enabled": true,
   "files.trimTrailingWhitespace": true,
   "git.confirmSync": false,
@@ -122,7 +120,6 @@
   "editor.linkedEditing": true,
   "editor.links": true,
   "editor.minimap.renderCharacters": false,
-  "explorer.openEditors.visible": 1,
   "editor.quickSuggestions": {
     "comments": "on",
     "strings": "on",
@@ -143,7 +140,6 @@
     }
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.stickyScroll.enabled": true,
   "extensions.ignoreRecommendations": true,
   "emmet.excludeLanguages": [
@@ -219,7 +215,7 @@
   },
   "editor.unicodeHighlight.nonBasicASCII": false,
   "editor.wordWrapColumn": 120,
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   "errorLens.excludeWorkspaces": [],
   "eslint.enable": true,
   "eslint.validate": [
@@ -254,13 +250,36 @@
     "ostream": "cpp",
     "queue": "cpp",
     "stack": "cpp",
-    "string": "cpp",
-    "string_view": "cpp",
+    "string": "c",
+    "string_view": "c",
     "tuple": "cpp",
     "unordered_map": "cpp",
     "unordered_set": "cpp",
     "utility": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "*.excalidraw": "json",
+    "*.excalidrawlib": "json",
+    "esp_timer.h": "c",
+    "esp_camera.h": "c",
+    "esp_http_server.h": "c",
+    "bootloader_flash_config.h": "c",
+    "s014_tf_config.h": "c",
+    "freertos.h": "c",
+    "cerrno": "cpp",
+    "cstdlib": "c",
+    "chrono": "cpp",
+    "typeindex": "cpp",
+    "typeinfo": "cpp",
+    "*.inc": "c",
+    "*.ipp": "c",
+    "functional": "c",
+    "compare": "cpp",
+    "cstdint": "cpp",
+    "bitset": "c",
+    "regex": "c",
+    "array": "c",
+    "span": "c",
+    "hash_map": "c"
   },
   "files.exclude": {
     "**/.git": true,
@@ -316,6 +335,14 @@
     "showSingleEditorCursorMoves": true
   },
   "search.useIgnoreFiles": false,
+  "search.useGlobalIgnoreFiles": false,
+  "search.useParentIgnoreFiles": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/.git": true,
+  },
   "svelte.enable-ts-plugin": true,
   "telemetry.telemetryLevel": "off",
   "terminal.external.linuxExec": "wezterm",
@@ -360,6 +387,46 @@
         "leader",
         "s"
       ]
+    },
+    {
+      "before": [
+        "g",
+        "d"
+      ],
+      "commands": [
+        "editor.action.revealDefinition"
+      ],
+      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ],
+      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    {
+      "before": [
+        "g",
+        "i"
+      ],
+      "commands": [
+        "editor.action.goToImplementation"
+      ],
+      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    },
+    {
+      "before": [
+        "g",
+        "p"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ],
+      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
     },
   ],
   "vim.useCtrlKeys": true,
@@ -450,4 +517,22 @@
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
+  "github.copilot.chat.codesearch.enabled": true,
+  "chat.experimental.statusIndicator.enabled": true,
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+  "git.blame.editorDecoration.enabled": false,
+  "git.blame.statusBarItem.enabled": false,
+  "basedpyright.analysis.diagnosticMode": "workspace",
+  "chat.agent.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.scopeSelection": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "github.copilot.chat.edits.temporalContext.enabled": true,
+  "github.copilot.chat.generateTests.codeLens": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "editor.minimap.autohide": true,
+  "editor.minimap.enabled": false,
 }

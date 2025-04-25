@@ -73,6 +73,11 @@
     }
   },
   {
+    "key": "space g b",
+    "command": "git-blame.command.lineHistory",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus)",
+  },
+  {
     "key": "space f f",
     "command": "workbench.action.quickOpen",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus)",
@@ -101,21 +106,6 @@
     "key": "space l r",
     "command": "editor.action.rename",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus)"
-  },
-  {
-    "key": "g d",
-    "command": "editor.action.revealDefinition",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "g r",
-    "command": "editor.action.goToReferences",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
-  },
-  {
-    "key": "g i",
-    "command": "editor.action.goToImplementation",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "key": "space l s",
@@ -322,6 +312,11 @@
     "key": "space f p",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus) && (activeEditorIsPinned)",
     "command": "workbench.action.unpinEditor"
+  },
+  {
+    "key": "space f i",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus) ",
+    "command": "ruff.executeOrganizeImports"
   },
   {
     "key": "shift+\\",
@@ -602,5 +597,93 @@
     "key": "space f shift-r",
     "command": "workbench.action.replaceInFiles",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus)",
+  },
+  {
+    "key": "space a q",
+    "command": "workbench.action.quickchat.toggle",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus)",
+  },
+  {
+    "key": "space a i",
+    "command": "inlineChat.start",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus)",
+  },
+  {
+    "key": "space a i",
+    "command": "inlineChat.startWithCurrentLine",
+    "when": "( vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus) && editorHasSelection",
+  },
+  {
+    "key": "space a c",
+    "command": "workbench.action.chat.open",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus)",
+  },
+  {
+    "key": "space a c",
+    "command": "workbench.panel.chat",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus) && workbench.panel.chat.view.copilot.active",
+  },
+  {
+    "key": "space a e",
+    "command": "workbench.action.chat.openEditSession",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus) && chatEditingParticipantRegistered && view != 'workbench.panel.chat.view.edits'",
+  },
+  {
+    "key": "space a e",
+    "command": "workbench.panel.chatEditing",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus) && workbench.panel.chat.view.edits.active",
+  },
+  {
+    "key": "space p",
+    "command": "workbench.action.showCommands",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualLine') && (editorTextFocus || !inputFocus)",
+  },
+  {
+    "key": "escape",
+    "command": "-extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "escape",
+    "command": "extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && !testing.isPeekVisible && !testing.isInPeek && (vim.mode == 'Insert' || !notebookEditorFocused) && !inlineEditIsVisible && !suggestWidgetVisible && !findWidgetVisible && !dirtyDiffVisible"
+  },
+  {
+    "key": "escape",
+    "command": "runCommands",
+    "when": "vim.mode == 'Insert' && inlineEditIsVisible",
+    "args": {
+      "commands": [
+        "editor.action.inlineSuggest.hide",
+        "extension.vim_escape"
+      ]
+    }
+  },
+  {
+    "key": "escape",
+    "command": "runCommands",
+    "when": "vim.mode == 'Insert' && suggestWidgetVisible",
+    "args": {
+      "commands": [
+        "hideSuggestWidget",
+        "extension.vim_escape"
+      ]
+    }
+  },
+  {
+    "key": "escape",
+    "command": "-hideSuggestWidget",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "escape",
+    "command": "hideSuggestWidget",
+    "when": "suggestWidgetVisible && textInputFocus && !vim.active"
+  },
+  {
+    // Remove VSCodeVim's handling of tab to enable default handling of tab
+    // e.g. for inline suggestions.
+    "key": "tab",
+    "command": "-extension.vim_tab",
   },
 ]

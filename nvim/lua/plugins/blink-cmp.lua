@@ -73,133 +73,133 @@ local function get_kind_icon(CTX)
   return { text = CTX.kind_icon .. CTX.icon_gap, highlight = CTX.kind_icon_highlight }
 end
 
-return {
-  "Saghen/blink.cmp",
-  event = { "InsertEnter", "CmdlineEnter" },
-  version = "0.*",
-  -- dependencies = { "rafamadriz/friendly-snippets", "giuxtaposition/blink-cmp-copilot" },
-  dependencies = { "rafamadriz/friendly-snippets" },
-  opts_extend = { "sources.default", "sources.cmdline" },
-  opts = {
-    -- remember to enable your providers here
-    sources = {
-      -- default = { "lsp", "path", "snippets", "buffer", "copilot" },
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
-    keymap = {
-      ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<Up>"] = { "select_prev", "fallback" },
-      ["<Down>"] = { "select_next", "fallback" },
-      ["<C-N>"] = { "select_next", "show" },
-      ["<C-P>"] = { "select_prev", "show" },
-      ["<C-J>"] = { "select_next", "fallback" },
-      ["<C-K>"] = { "select_prev", "fallback" },
-      ["<C-U>"] = { "scroll_documentation_up", "fallback" },
-      ["<C-D>"] = { "scroll_documentation_down", "fallback" },
-      ["<C-e>"] = { "hide", "fallback" },
-      ["<CR>"] = { "accept", "fallback" },
-      ["<Tab>"] = {
-        "select_next",
-        "snippet_forward",
-        function(cmp)
-          if has_words_before() or vim.api.nvim_get_mode().mode == "c" then return cmp.show() end
-        end,
-        "fallback",
-      },
-      ["<S-Tab>"] = {
-        "select_prev",
-        "snippet_backward",
-        function(cmp)
-          if vim.api.nvim_get_mode().mode == "c" then return cmp.show() end
-        end,
-        "fallback",
-      },
-    },
-    completion = {
-      list = { selection = { preselect = false, auto_insert = true } },
-      menu = {
-        auto_show = function(ctx) return ctx.mode ~= "cmdline" end,
-        border = "rounded",
-        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-        draw = {
-          treesitter = { "lsp" },
-          components = {
-            kind_icon = {
-              text = function(ctx) return get_kind_icon(ctx).text end,
-              highlight = function(ctx) return get_kind_icon(ctx).highlight end,
-            },
-          },
-        },
-      },
-      accept = {
-        auto_brackets = { enabled = true },
-      },
-      documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 0,
-        window = {
-          border = "rounded",
-          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-        },
-      },
-    },
-    signature = {
-      window = {
-        border = "rounded",
-        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
-      },
-    },
-  },
-  specs = {
-    {
-      "L3MON4D3/LuaSnip",
-      optional = true,
-      specs = { { "Saghen/blink.cmp", opts = { snippets = { preset = "luasnip" } } } },
-    },
-    {
-      "AstroNvim/astrolsp",
-      optional = true,
-      opts = function(_, opts)
-        opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities)
-
-        -- disable AstroLSP signature help if `blink.cmp` is providing it
-        local blink_opts = require("astrocore").plugin_opts "blink.cmp"
-        if vim.tbl_get(blink_opts, "signature", "enabled") == true then
-          if not opts.features then opts.features = {} end
-          opts.features.signature_help = false
-        end
-      end,
-    },
-    {
-      "folke/lazydev.nvim",
-      optional = true,
-      specs = {
-        {
-          "Saghen/blink.cmp",
-          opts = function(_, opts)
-            if pcall(require, "lazydev.integrations.blink") then
-              return require("astrocore").extend_tbl(opts, {
-                sources = {
-                  -- add lazydev to your completion providers
-                  default = { "lazydev" },
-                  providers = {
-                    lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
-                    -- copilot = {
-                    --   name = "copilot",
-                    --   module = "blink-cmp-copilot",
-                    --   score_offset = 100,
-                    --   async = true,
-                    -- },
-                  },
-                },
-              })
-            end
-          end,
-        },
-      },
-    },
-    -- disable built in completion plugins
-    { "hrsh7th/nvim-cmp", enabled = false },
-    { "rcarriga/cmp-dap", enabled = false },
-  },
-}
+-- return {
+--   "Saghen/blink.cmp",
+--   event = { "InsertEnter", "CmdlineEnter" },
+--   version = "0.*",
+--   -- dependencies = { "rafamadriz/friendly-snippets", "giuxtaposition/blink-cmp-copilot" },
+--   dependencies = { "rafamadriz/friendly-snippets" },
+--   opts_extend = { "sources.default", "sources.cmdline" },
+--   opts = {
+--     -- remember to enable your providers here
+--     sources = {
+--       -- default = { "lsp", "path", "snippets", "buffer", "copilot" },
+--       default = { "lsp", "path", "snippets", "buffer" },
+--     },
+--     keymap = {
+--       ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+--       ["<Up>"] = { "select_prev", "fallback" },
+--       ["<Down>"] = { "select_next", "fallback" },
+--       ["<C-N>"] = { "select_next", "show" },
+--       ["<C-P>"] = { "select_prev", "show" },
+--       ["<C-J>"] = { "select_next", "fallback" },
+--       ["<C-K>"] = { "select_prev", "fallback" },
+--       ["<C-U>"] = { "scroll_documentation_up", "fallback" },
+--       ["<C-D>"] = { "scroll_documentation_down", "fallback" },
+--       ["<C-e>"] = { "hide", "fallback" },
+--       ["<CR>"] = { "accept", "fallback" },
+--       ["<Tab>"] = {
+--         "select_next",
+--         "snippet_forward",
+--         function(cmp)
+--           if has_words_before() or vim.api.nvim_get_mode().mode == "c" then return cmp.show() end
+--         end,
+--         "fallback",
+--       },
+--       ["<S-Tab>"] = {
+--         "select_prev",
+--         "snippet_backward",
+--         function(cmp)
+--           if vim.api.nvim_get_mode().mode == "c" then return cmp.show() end
+--         end,
+--         "fallback",
+--       },
+--     },
+--     completion = {
+--       list = { selection = { preselect = false, auto_insert = true } },
+--       menu = {
+--         auto_show = function(ctx) return ctx.mode ~= "cmdline" end,
+--         border = "rounded",
+--         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+--         draw = {
+--           treesitter = { "lsp" },
+--           components = {
+--             kind_icon = {
+--               text = function(ctx) return get_kind_icon(ctx).text end,
+--               highlight = function(ctx) return get_kind_icon(ctx).highlight end,
+--             },
+--           },
+--         },
+--       },
+--       accept = {
+--         auto_brackets = { enabled = true },
+--       },
+--       documentation = {
+--         auto_show = true,
+--         auto_show_delay_ms = 0,
+--         window = {
+--           border = "rounded",
+--           winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+--         },
+--       },
+--     },
+--     signature = {
+--       window = {
+--         border = "rounded",
+--         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
+--       },
+--     },
+--   },
+--   specs = {
+--     {
+--       "L3MON4D3/LuaSnip",
+--       optional = true,
+--       specs = { { "Saghen/blink.cmp", opts = { snippets = { preset = "luasnip" } } } },
+--     },
+--     {
+--       "AstroNvim/astrolsp",
+--       optional = true,
+--       opts = function(_, opts)
+--         opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities)
+--
+--         -- disable AstroLSP signature help if `blink.cmp` is providing it
+--         local blink_opts = require("astrocore").plugin_opts "blink.cmp"
+--         if vim.tbl_get(blink_opts, "signature", "enabled") == true then
+--           if not opts.features then opts.features = {} end
+--           opts.features.signature_help = false
+--         end
+--       end,
+--     },
+--     {
+--       "folke/lazydev.nvim",
+--       optional = true,
+--       specs = {
+--         {
+--           "Saghen/blink.cmp",
+--           opts = function(_, opts)
+--             if pcall(require, "lazydev.integrations.blink") then
+--               return require("astrocore").extend_tbl(opts, {
+--                 sources = {
+--                   -- add lazydev to your completion providers
+--                   default = { "lazydev" },
+--                   providers = {
+--                     lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", score_offset = 100 },
+--                     -- copilot = {
+--                     --   name = "copilot",
+--                     --   module = "blink-cmp-copilot",
+--                     --   score_offset = 100,
+--                     --   async = true,
+--                     -- },
+--                   },
+--                 },
+--               })
+--             end
+--           end,
+--         },
+--       },
+--     },
+--     -- disable built in completion plugins
+--     { "hrsh7th/nvim-cmp", enabled = false },
+--     { "rcarriga/cmp-dap", enabled = false },
+--   },
+-- }
