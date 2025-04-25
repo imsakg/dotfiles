@@ -1,55 +1,6 @@
--- AstroCommunity: import any community modules here
--- We import this file in `lazy_setup.lua` before the `plugins/` folder.
--- This guarantees that the specs are processed before any user plugins.
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  -- Theming   ──────────────────────────────────────────────────────────────────────
-  {
-    -- further customize the options set by the community
-    import = "astrocommunity.colorscheme.catppuccin",
-    opts = {
-      integrations = {
-        sandwich = false,
-        noice = true,
-        mini = true,
-        leap = true,
-        markdown = true,
-        neotest = true,
-        cmp = true,
-        overseer = true,
-        lsp_trouble = true,
-        ts_rainbow2 = true,
-      },
-    },
-  },
-
-  -- { import = "astrocommunity.completion.cmp-cmdline" },
-  { import = "astrocommunity.completion.cmp-calc" },
-  -- { import = "astrocommunity.completion.mini-completion" },
-
-  { import = "astrocommunity.lsp.actions-preview-nvim" },
-  { import = "astrocommunity.lsp.lspsaga-nvim" },
-  -- {
-  --   -- further customize the options set by the community
-  --   import = "astrocommunity.completion.copilot-lua-cmp",
-  --   opts = {
-  --     suggestion = {
-  --       keymap = {
-  --         accept = "<C-l>",
-  --         accept_word = "<C-J>",
-  --         accept_line = false,
-  --         next = "<C-.>",
-  --         prev = "<C-,>",
-  --         dismiss = "<C/>",
-  --       },
-  --     },
-  --   },
-  -- },
-  -- { import = "astrocommunity.completion.avante-nvim" },
-  -- { import = "astrocommunity.editing-support.copilotchat-nvim" },
-
   -- Packs
   { import = "astrocommunity.pack.astro" },
   { import = "astrocommunity.pack.bash" },
@@ -67,7 +18,6 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.mdx" },
   -- { import = "astrocommunity.pack.php" },
-  -- { import = "astrocommunity.pack.proto" },
   -- { import = "astrocommunity.pack.ps1" },
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.rust" },
@@ -81,6 +31,13 @@ return {
   -- { import = "astrocommunity.pack.wgsl" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.zig" },
+
+  { import = "astrocommunity.recipes.ai" },
+  { import = "astrocommunity.completion.copilot-vim" },
+
+
+  -- import/override with your plugins folder
+
 
   { import = "astrocommunity.register/nvim-neoclip-lua" },
   -- Markdown - Latex
@@ -117,11 +74,6 @@ return {
   -- { import = "astrocommunity.editing-support.nvim-treesitter-context" },
 
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.yaml" },
-  { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.colorscheme.github-nvim-theme" },
@@ -256,14 +208,4 @@ return {
       },
     },
   },
-  -- {
-  --   import = "astrocommunity.game.leetcode-nvim",
-  --   opts = {
-  --     lang = "rust",
-  --
-  --     storage = {
-  --       home = "~/msa/competitive_programming/" .. "/leetcode-nvim",
-  --     },
-  --   },
-  -- },
 }

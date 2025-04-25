@@ -9,7 +9,7 @@ return {
     options = {
       opt = { -- configure vim.opt options
         -- configure font
-        guifont = "MonaSpace Krypton:h11",
+        guifont = "MonaSpace Krypton:h14",
         -- line spacing
         linespace = 0,
       },

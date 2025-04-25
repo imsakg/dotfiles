@@ -28,6 +28,7 @@ export TODOTXT_DEFAULT_ACTION=ls
 export VISUAL="$(which nvim)"
 export ZSH="$HOME/.oh-my-zsh"
 export ZOXIDE_CMD_OVERRIDE="cd"
+export AICOMMIT_MODEL="gpt-4.1"
 
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'

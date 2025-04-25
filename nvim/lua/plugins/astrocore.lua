@@ -10,10 +10,10 @@ return {
   opts = {
     -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
-      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
@@ -22,13 +22,26 @@ return {
       virtual_text = true,
       underline = true,
     },
+    -- passed to `vim.filetype.add`
+    filetypes = {
+      -- see `:h vim.filetype.add` for usage
+      extension = {
+        foo = "fooscript",
+      },
+      filename = {
+        [".foorc"] = "fooscript",
+      },
+      pattern = {
+        [".*/etc/foo/.*"] = "fooscript",
+      },
+    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
         relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        -- signcolumn = "auto", -- sets vim.opt.signcolumn to auto
+        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
         smartcase = true, -- sets vim.opt.smartcase
         ignorecase = true, -- sets vim.opt.ignorecase
@@ -40,7 +53,6 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
-        autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
         cmp_enabled = true, -- enable completion at start
         autopairs_enabled = true, -- enable autopairs at start
         diagnostics_enabled = true, -- enable diagnostics at start
@@ -54,21 +66,7 @@ return {
         silicon = {
           background = "#191a21",
           ["window-controls"] = false,
-          -- background = "#161616",
-          -- ["theme"] = "gruvbox-dark",
-          -- ["pad-horiz"] = 10,
-          -- ["pad-vert"] = 10,
-          -- ["round-corner"] = true,
-        }, -- configure Silicon
-        -- silicon = {
-        --   background = "#d5cac2",
-        --   ["window-controls"] = false,
-        --   ["round-corner"] = true,
-        --   ["theme"] = "gruvbox-dark",
-        --   ["pad-horiz"] = 10,
-        --   ["pad-vert"] = 10,
-        -- }, -- configure Silicon
-        -- noswapfile = true, -- disable swap files
+        },
       },
     },
     -- Mappings can be configured through AstroCore as well.
