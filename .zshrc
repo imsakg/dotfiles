@@ -1,7 +1,7 @@
 # EXPORTS
 export BAT_THEME="Visual Studio Dark+"
 export BUN_INSTALL="$HOME/.bun"
-export CHROME_EXECUTABLE="/Applications/Vivaldi.app/Contents/MacOS/Vivaldi"
+export CHROME_EXECUTABLE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 export CLICOLOR=1
 export COLORTERM=truecolor
 export DENO_INSTALL="$HOME/.deno"
@@ -23,7 +23,6 @@ export shell="$(which zsh)";
 export SHELL="$shell";
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export TERM="xterm-256color"
-export TERMINAL="wezterm";
 export TODOTXT_DEFAULT_ACTION=ls
 export VISUAL="$(which nvim)"
 export ZSH="$HOME/.oh-my-zsh"
@@ -144,6 +143,7 @@ $HOME/.cargo/bin:\
 /opt/homebrew/opt/binutils/bin:\
 /opt/homebrew/opt/bison/bin:\
 /opt/homebrew/opt/texinfo/bin:\
+/opt/homebrew/opt/libpq/bin:\
 /usr/local/bin:\
 /usr/bin:\
 /usr/local/sbin:\
@@ -172,20 +172,6 @@ fi
 # Load OMZ
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 
-source "$HOME/.config/broot/launcher/bash/br"
-[[ $- == *i* ]] && source "/opt/homebrew/opt/sk/share/zsh/site-functions/completion.zsh" 2> /dev/null
-source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-source "$HOME/.rye/env"
-
-# Prompt
-eval "$(starship init zsh)"
-eval "$(atuin init zsh --disable-up-arrow)"
-eval "$(fnm env --use-on-cd)"
-eval "$(ngrok completion)"
-eval "$(procs --gen-completion-out zsh)"
-eval "$(sqlx completions zsh)"
-eval "$(wezterm shell-completion --shell zsh)"
 
 # ALIAS
 alias c='clear'
@@ -195,6 +181,8 @@ alias calc="numbat"
 
 # broot
 alias br='broot -dhp --sizes'
+
+alias python='python3'
 
 # Colorize grep output (good for log files)
 alias egrep='egrep --color=auto'
@@ -221,7 +209,6 @@ alias ls='eza -l --icons --git --octal-permissions --color=always --no-permissio
 
 alias df="duf"
 alias du="dust"
-alias imgcat="wezterm imgcat"
 
 # |======  Bat for man pages  ======|
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
@@ -281,7 +268,7 @@ alias yta-aac="yt-dlp --extract-audio --audio-format aac"
 alias yta-best="yt-dlp --extract-audio --audio-format best"
 alias yta-flac="yt-dlp --extract-audio --audio-format flac"
 alias yta-mp3="yt-dlp --extract-audio --audio-format mp3"
-alias yta-wav="yt-dlp --extract-audio --audio-format wav"
+alias yta-wav="yt-dlp --extract-audio --audio-format wav --audio-quality best"
 alias ytv-best="yt-dlp -f bestvideo+bestaudio"
 
 # confirm before overwriting something
@@ -381,6 +368,22 @@ set_java_version() {
     java -version
 }
 
-
-# bun completions
+# completions
+source "$HOME/.config/broot/launcher/bash/br"
+[[ $- == *i* ]] && source "/opt/homebrew/opt/sk/share/zsh/site-functions/completion.zsh" 2> /dev/null
+source "/opt/homebrew/opt/sk/share/zsh/site-functions/key-bindings.zsh"
 [ -s "/Users/msa/.bun/_bun" ] && source "/Users/msa/.bun/_bun"
+
+# Prompt
+eval "$(starship init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(fnm env --use-on-cd)"
+eval "$(ngrok completion)"
+eval "$(procs --gen-completion-out zsh)"
+eval "$(sqlx completions zsh)"
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/msa/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

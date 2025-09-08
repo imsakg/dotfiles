@@ -1,538 +1,530 @@
 {
-  "C_Cpp.default.cStandard": "c17",
-  "C_Cpp.default.cppStandard": "c++20",
-  "C_Cpp.default.macFrameworkPath": [
-    "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
-  ],
-  "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
-  "C_Cpp.inlayHints.referenceOperator.enabled": true,
-  "[cpp]": {
-    "editor.semanticHighlighting.enabled": true,
-    "editor.stickyScroll.defaultModel": "foldingProviderModel",
-    "editor.suggest.insertMode": "replace",
-    "editor.wordBasedSuggestions": "off"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[dart]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
-    "editor.selectionHighlight": false,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.suggestSelection": "first",
-    "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": "off"
-  },
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "[handlebars]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnSave": true,
-    "diffEditor.ignoreTrimWhitespace": true,
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cmake.pinnedCommands": [
-    "workbench.action.tasks.configureTaskRunner",
-    "workbench.action.tasks.runTask"
-  ],
-  "cmake.showOptionsMovedNotification": false,
-  "codesnap.backgroundColor": "#000000",
-  "codesnap.containerPadding": "0px",
-  "codesnap.showWindowControls": false,
-  "codesnap.transparentBackground": true,
-  "dart.debugExternalPackageLibraries": false,
-  "dart.debugSdkLibraries": false,
-  "dart.devToolsBrowser": "default",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "dotenv.enableAutocloaking": false,
-  "editor.accessibilitySupport": "off",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.cursorSmoothCaretAnimation": "on",
-  "editor.cursorSurroundingLines": 15,
-  "editor.detectIndentation": true,
-  "editor.foldingStrategy": "indentation",
-  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono'",
-  "editor.fontLigatures": false,
-  "editor.fontSize": 14,
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
-  "editor.glyphMargin": true,
-  "editor.guides.bracketPairs": "active",
-  "editor.inlayHints.enabled": "offUnlessPressed",
-  "editor.inlayHints.padding": true,
-  "editor.inlineSuggest.enabled": true,
-  "editor.largeFileOptimizations": false,
-  "workbench.editor.closeEmptyGroups": false,
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.tabCompletion": "on",
-  "prettier.singleQuote": true,
-  "prettier.semi": true,
-  "prettier.trailingComma": "es5",
-  "prettier.arrowParens": "always",
-  "editor.wordBasedSuggestions": "off",
-  "editor.parameterHints.enabled": true,
-  "files.trimTrailingWhitespace": true,
-  "git.confirmSync": false,
-  "editor.matchBrackets": "always",
-  "workbench.editor.highlightModifiedTabs": true,
-  "git.enableSmartCommit": true,
-  "javascript.validate.enable": false,
-  "editor.linkedEditing": true,
-  "editor.links": true,
-  "editor.minimap.renderCharacters": false,
-  "editor.quickSuggestions": {
-    "comments": "on",
-    "strings": "on",
-    "other": "on"
-  },
-  "editor.suggestOnTriggerCharacters": true,
-  "editor.scrollbar.horizontal": "auto",
-  "editor.scrollbar.horizontalScrollbarSize": 10,
-  "editor.scrollbar.vertical": "auto",
-  "editor.scrollbar.verticalScrollbarSize": 10,
-  "editor.semanticTokenColorCustomizations": {
-    "enabled": true,
-    "rules": {
-      "*.mutable": {
-        "foreground": "#ff0000",
-        "underline": false
-      }
-    }
-  },
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.stickyScroll.enabled": true,
-  "extensions.ignoreRecommendations": true,
-  "emmet.excludeLanguages": [
-    "markdown"
-  ],
-  "emmet.showExpandedAbbreviation": "never",
-  "markdown.extension.list.indentationSize": "inherit",
-  "prettier.jsxSingleQuote": true,
-  "security.workspace.trust.untrustedFiles": "open",
-  "editor.cursorBlinking": "solid",
-  "editor.cursorStyle": "line-thin",
-  "window.autoDetectHighContrast": false,
-  "editor.rulers": [
-    80
-  ],
-  "search.defaultViewMode": "tree",
-  "screencastMode.fontSize": 32,
-  "breadcrumbs.enabled": true,
-  "screencastMode.mouseIndicatorSize": 40,
-  "screencastMode.verticalOffset": 10,
-  "screencastMode.mouseIndicatorColor": "#805AD5",
-  "editor.suggest.insertMode": "replace",
-  "editor.suggestSelection": "first",
-  "editor.tokenColorCustomizations": {
-    "[*Light*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#000"
-          }
-        }
-      ]
-    },
-    "[*Dark*]": {
-      "textMateRules": [
-        {
-          "scope": "ref.matchtext",
-          "settings": {
-            "foreground": "#fff"
-          }
-        }
-      ]
-    },
-    "textMateRules": [
-      {
-        "scope": [
-          "comment",
-          "entity.name.type.class",
-          "keyword",
-          "constant",
-          "storage.modifier",
-          "storage.type.class.js"
-        ],
-        "settings": {
-          "fontStyle": "italic"
-        }
-      },
-      {
-        "scope": [
-          "invalid",
-          "keyword.operator",
-          "constant.numeric.css",
-          "keyword.other.unit.px.css",
-          "constant.numeric.decimal.js",
-          "constant.numeric.json"
-        ],
-        "settings": {
-          "fontStyle": ""
-        }
-      }
-    ]
-  },
-  "editor.unicodeHighlight.nonBasicASCII": false,
-  "editor.wordWrapColumn": 120,
-  "editor.tabSize": 4,
-  "errorLens.excludeWorkspaces": [],
-  "eslint.enable": true,
-  "eslint.validate": [
-    "vue",
-    "react",
-    "typescript",
-    "html",
-    "javascript"
-  ],
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1,
-    "vscodevim.vim": 1
-  },
-  "files.associations": {
-    ".env*": "dotenv",
-    "__bit_reference": "cpp",
-    "__config": "cpp",
-    "__hash_table": "cpp",
-    "__node_handle": "cpp",
-    "__split_buffer": "cpp",
-    "__verbose_abort": "cpp",
-    "algorithm": "cpp",
-    "cmath": "cpp",
-    "complex": "cpp",
-    "deque": "cpp",
-    "iterator": "cpp",
-    "locale": "cpp",
-    "map": "cpp",
-    "memory": "cpp",
-    "ostream": "cpp",
-    "queue": "cpp",
-    "stack": "cpp",
-    "string": "c",
-    "string_view": "c",
-    "tuple": "cpp",
-    "unordered_map": "cpp",
-    "unordered_set": "cpp",
-    "utility": "cpp",
-    "vector": "cpp",
-    "*.excalidraw": "json",
-    "*.excalidrawlib": "json",
-    "esp_timer.h": "c",
-    "esp_camera.h": "c",
-    "esp_http_server.h": "c",
-    "bootloader_flash_config.h": "c",
-    "s014_tf_config.h": "c",
-    "freertos.h": "c",
-    "cerrno": "cpp",
-    "cstdlib": "c",
-    "chrono": "cpp",
-    "typeindex": "cpp",
-    "typeinfo": "cpp",
-    "*.inc": "c",
-    "*.ipp": "c",
-    "functional": "c",
-    "compare": "cpp",
-    "cstdint": "cpp",
-    "bitset": "c",
-    "regex": "c",
-    "array": "c",
-    "span": "c",
-    "hash_map": "c"
-  },
-  "files.exclude": {
-    "**/.git": true,
-    "**/.vscode": true,
-    "**/.venv": true,
-    "**/bower_components": true,
-    "**/build": true,
-    "**/dist": true,
-    "**/node_modules": true,
-    "**/target": true,
-    "**/tmp": true,
-    "**/.classpath": true,
-    "**/.factorypath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/__pycache__/": true,
-    "**.py[oc]": true,
-    "**/.DS_Store": true
-  },
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true
-  },
-  "git.autofetch": true,
-  "git.openRepositoryInParentFolders": "never",
-  "github.copilot.editor.enableAutoCompletions": true,
-  "github.copilot.enable": {
-    "*": true,
-    "markdown": true,
-    "plaintext": false,
-    "scminput": false
-  },
-  "go.toolsManagement.autoUpdate": true,
-  "markdown-pdf.highlightStyle": "nord.css",
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  },
-  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
-  "redhat.telemetry.enabled": false,
-  "ruff.nativeServer": true,
-  "rust-analyzer.check.command": "clippy",
-  "rust-analyzer.debug.openDebugPane": true,
-  "screencastMode.keyboardOptions": {
-    "showCommandGroups": false,
-    "showCommands": false,
-    "showKeybindings": true,
-    "showKeys": false,
-    "showSingleEditorCursorMoves": true
-  },
-  "search.useIgnoreFiles": false,
-  "search.useGlobalIgnoreFiles": false,
-  "search.useParentIgnoreFiles": false,
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/bower_components": true,
-    "**/*.code-search": true,
-    "**/.git": true,
-  },
-  "svelte.enable-ts-plugin": true,
-  "telemetry.telemetryLevel": "off",
-  "terminal.external.linuxExec": "wezterm",
-  "terminal.external.osxExec": "wezterm",
-  "markdown.extension.toc.levels": "2..6",
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
-  "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font Mono'",
-  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
-  "terminal.integrated.showExitAlert": false,
-  "terminal.integrated.suggest.enabled": false,
-  // VIM
-  "vim.easymotion": true,
-  "vim.enableNeovim": true,
-  "vim.showMarksInGutter": false,
-  "vim.targets.enable": false,
-  "vim.foldfix": true,
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false,
-    "<C-d>": true,
-    "<C-s>": false,
-    "<C-z>": false
-  },
-  "vim.hlsearch": true,
-  "vim.incsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "after": [],
-      "before": []
-    }
-  ],
-  "vim.leader": "<space>",
-  "vim.normalModeKeyBindings": [],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "s"
-      ],
-      "after": [
-        "leader",
-        "leader",
-        "s"
-      ]
-    },
-    {
-      "before": [
-        "g",
-        "d"
-      ],
-      "commands": [
-        "editor.action.revealDefinition"
-      ],
-      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-    },
-    {
-      "before": [
-        "g",
-        "r"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
-      ],
-      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-    },
-    {
-      "before": [
-        "g",
-        "i"
-      ],
-      "commands": [
-        "editor.action.goToImplementation"
-      ],
-      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-    },
-    {
-      "before": [
-        "g",
-        "p"
-      ],
-      "commands": [
-        "editor.action.marker.next"
-      ],
-      "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-    },
-  ],
-  "vim.useCtrlKeys": true,
-  "vim.useSystemClipboard": true,
-  "vim.visualstar": true,
-  "vim.highlightedyank.enable": true,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "window.autoDetectColorScheme": true,
-  "window.commandCenter": false,
-  "window.systemColorTheme": "auto",
-  "window.zoomPerWindow": false,
-  "workbench.auxiliaryActivityBar.location": "top",
-  "workbench.colorTheme": "Default Dark+",
-  "workbench.editor.labelFormat": "default",
-  "workbench.editorAssociations": {
-    "*.db": "sqlite-viewer.option",
-    "*.ipynb": "jupyter-notebook",
-    "git-rebase-todo": "default"
-  },
-  "workbench.layoutControl.enabled": false,
-  "workbench.startupEditor": "none",
-  "zenMode.centerLayout": false,
-  "zenMode.hideLineNumbers": false,
-  "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.inlayHints.variableTypes": true,
-  "git.enableCommitSigning": true,
-  "workbench.fontAliasing": "auto",
-  "workbench.list.smoothScrolling": true,
-  "editor.smoothScrolling": true,
-  "vscode_custom_css.imports": [
-    "file:///Users/msa/.vscode/css/style.css"
-  ],
-  "workbench.panel.showLabels": false,
-  "zenMode.fullScreen": false,
-  "explorer.fileNesting.patterns": {
-    "*.ts": "${capture}.js",
-    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-    "*.jsx": "${capture}.js",
-    "*.tsx": "${capture}.ts",
-    "tsconfig.json": "tsconfig.*.json",
-    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
-    "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
-    "*.dart": "${capture}.g.dart",
-    "Cargo.toml": "Cargo.lock",
-    "*.sqlite": "${capture}.${extname}-*",
-    "*.db": "${capture}.${extname}-*",
-    "*.sqlite3": "${capture}.${extname}-*",
-    "*.db3": "${capture}.${extname}-*",
-    "*.sdb": "${capture}.${extname}-*",
-    "*.s3db": "${capture}.${extname}-*"
-  },
-  "explorer.compactFolders": false,
-  "explorer.autoReveal": false,
-  "[dotenv]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIX",
-    "FEAT",
-    "TODO",
-    "REMOVE",
-    "WARN",
-    "NOTE",
-    "INFO",
-    "IDEA",
-    "REVIEW",
-    "QUESTION",
-    "DEBUG",
-    "OPTIMIZE",
-    "IMPROVE",
-    "REFACTOR",
-    "WTF",
-    "HOTFIX",
-    "ISSUE",
-    "TASK",
-    "DONE",
-    "XXX",
-    "[ ]",
-    "[x]",
-  ],
-  "todo-tree.highlights.useColourScheme": true,
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.tabs.hideCondition": "singleGroup",
-  "terminal.integrated.fontSize": 13,
-  "workbench.activityBar.location": "hidden",
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "github.copilot.chat.codesearch.enabled": true,
-  "chat.experimental.statusIndicator.enabled": true,
-  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
-  "git.blame.editorDecoration.enabled": false,
-  "git.blame.statusBarItem.enabled": false,
-  "basedpyright.analysis.diagnosticMode": "workspace",
-  "chat.agent.enabled": true,
-  "github.copilot.chat.agent.thinkingTool": true,
-  "github.copilot.chat.scopeSelection": true,
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "github.copilot.chat.editor.temporalContext.enabled": true,
-  "github.copilot.chat.edits.temporalContext.enabled": true,
-  "github.copilot.chat.generateTests.codeLens": true,
-  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
-  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
-  "github.copilot.chat.languageContext.typescript.enabled": true,
-  "editor.minimap.autohide": true,
-  "editor.minimap.enabled": false,
+	"[cpp]": {
+		"editor.semanticHighlighting.enabled": true,
+		"editor.stickyScroll.defaultModel": "foldingProviderModel",
+		"editor.suggest.insertMode": "replace",
+		"editor.wordBasedSuggestions": "off"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[dart]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.rulers": [80],
+		"editor.selectionHighlight": false,
+		"editor.suggest.snippetsPreventQuickSuggestions": false,
+		"editor.suggestSelection": "first",
+		"editor.tabCompletion": "onlySnippets",
+		"editor.wordBasedSuggestions": "off"
+	},
+	"[dockerfile]": {
+		"editor.defaultFormatter": "ms-azuretools.vscode-containers"
+	},
+	"[dotenv]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[handlebars]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"[ignore]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[python]": {
+		"diffEditor.ignoreTrimWhitespace": true,
+		"editor.defaultFormatter": "charliermarsh.ruff",
+		"editor.formatOnSave": true
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[shellscript]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"basedpyright.analysis.diagnosticMode": "workspace",
+	"breadcrumbs.enabled": true,
+	"C_Cpp.default.cppStandard": "c++20",
+	"C_Cpp.default.cStandard": "c17",
+	"C_Cpp.default.macFrameworkPath": [
+		"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+	],
+	"C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+	"C_Cpp.inlayHints.referenceOperator.enabled": true,
+	"chat.agent.enabled": true,
+	"chat.experimental.statusIndicator.enabled": true,
+	"cmake.pinnedCommands": [
+		"workbench.action.tasks.configureTaskRunner",
+		"workbench.action.tasks.runTask"
+	],
+	"cmake.showOptionsMovedNotification": false,
+	"codesnap.backgroundColor": "#000000",
+	"codesnap.containerPadding": "0px",
+	"codesnap.showWindowControls": false,
+	"codesnap.transparentBackground": true,
+	"dart.debugExternalPackageLibraries": false,
+	"dart.debugSdkLibraries": false,
+	"dart.devToolsBrowser": "default",
+	"diffEditor.ignoreTrimWhitespace": false,
+	"docker.extension.enableComposeLanguageServer": false,
+	"dotenv.enableAutocloaking": false,
+	"editor.accessibilitySupport": "off",
+	"editor.bracketPairColorization.enabled": true,
+	"editor.cursorBlinking": "solid",
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.cursorStyle": "line-thin",
+	"editor.cursorSurroundingLines": 15,
+	"editor.detectIndentation": true,
+	"editor.foldingStrategy": "indentation",
+	"editor.fontFamily": "'Berkeley Mono Trial'",
+	"editor.fontLigatures": false,
+	"editor.formatOnSave": true,
+	"editor.glyphMargin": true,
+	"editor.guides.bracketPairs": "active",
+	"editor.inlayHints.enabled": "offUnlessPressed",
+	"editor.inlayHints.padding": true,
+	"editor.inlineSuggest.enabled": true,
+	"editor.largeFileOptimizations": false,
+	"editor.linkedEditing": true,
+	"editor.links": true,
+	"editor.matchBrackets": "always",
+	"editor.minimap.autohide": "mouseover",
+	"editor.minimap.enabled": false,
+	"editor.minimap.renderCharacters": false,
+	"editor.multiCursorModifier": "ctrlCmd",
+	"editor.parameterHints.enabled": true,
+	"editor.quickSuggestions": {
+		"comments": "on",
+		"other": "on",
+		"strings": "on"
+	},
+	"editor.rulers": [80],
+	"editor.scrollbar.horizontal": "hidden",
+	"editor.scrollbar.horizontalScrollbarSize": 5,
+	"editor.scrollbar.vertical": "auto",
+	"editor.scrollbar.verticalScrollbarSize": 5,
+	"editor.semanticTokenColorCustomizations": {
+		"enabled": true,
+		"rules": {
+			"*.mutable": {
+				"foreground": "#ff0000",
+				"underline": false
+			}
+		}
+	},
+	"editor.smoothScrolling": true,
+	"editor.stickyScroll.enabled": true,
+	"editor.suggest.insertMode": "replace",
+	"editor.suggestOnTriggerCharacters": true,
+	"editor.suggestSelection": "first",
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 4,
+	"editor.tokenColorCustomizations": {
+		"[*Light*]": {
+			"textMateRules": [
+				{
+					"scope": "ref.matchtext",
+					"settings": {
+						"foreground": "#000"
+					}
+				}
+			]
+		},
+		"[*Dark*]": {
+			"textMateRules": [
+				{
+					"scope": "ref.matchtext",
+					"settings": {
+						"foreground": "#fff"
+					}
+				}
+			]
+		},
+		"textMateRules": [
+			{
+				"scope": [
+					"comment",
+					"entity.name.type.class",
+					"keyword",
+					"constant",
+					"storage.modifier",
+					"storage.type.class.js"
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"scope": [
+					"invalid",
+					"keyword.operator",
+					"constant.numeric.css",
+					"keyword.other.unit.px.css",
+					"constant.numeric.decimal.js",
+					"constant.numeric.json"
+				],
+				"settings": {
+					"fontStyle": ""
+				}
+			}
+		]
+	},
+	"editor.unicodeHighlight.nonBasicASCII": false,
+	"editor.wordBasedSuggestions": "off",
+	"editor.wordWrapColumn": 120,
+	"emmet.excludeLanguages": ["markdown"],
+	"emmet.showExpandedAbbreviation": "never",
+	"errorLens.excludeWorkspaces": [],
+	"errorLens.statusBarIconsEnabled": true,
+	"eslint.enable": true,
+	"errorLens.statusBarMessageType": "activeCursor",
+	"errorLens.statusBarColorsEnabled": true,
+	"eslint.validate": ["vue", "react", "typescript", "html", "javascript"],
+	"explorer.autoReveal": false,
+	"explorer.compactFolders": false,
+	"explorer.confirmDelete": false,
+	"explorer.confirmDragAndDrop": false,
+	"explorer.fileNesting.patterns": {
+		"*.dart": "${capture}.g.dart",
+		"*.db": "${capture}.${extname}-*",
+		"*.db3": "${capture}.${extname}-*",
+		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+		"*.jsx": "${capture}.js",
+		"*.s3db": "${capture}.${extname}-*",
+		"*.sdb": "${capture}.${extname}-*",
+		"*.sqlite": "${capture}.${extname}-*",
+		"*.sqlite3": "${capture}.${extname}-*",
+		"*.ts": "${capture}.js",
+		"*.tsx": "${capture}.ts",
+		"Cargo.toml": "Cargo.lock",
+		"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+		"pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
+		"tsconfig.json": "tsconfig.*.json"
+	},
+	"extensions.experimental.affinity": {
+		"asvetliakov.vscode-neovim": 1,
+		"vscodevim.vim": 1
+	},
+	"extensions.ignoreRecommendations": true,
+	"files.associations": {
+		"__bit_reference": "cpp",
+		"__config": "cpp",
+		"__hash_table": "cpp",
+		"__node_handle": "cpp",
+		"__split_buffer": "cpp",
+		"__verbose_abort": "cpp",
+		".env*": "dotenv",
+		"*.excalidraw": "json",
+		"*.excalidrawlib": "json",
+		"*.inc": "c",
+		"*.ipp": "c",
+		"algorithm": "cpp",
+		"array": "c",
+		"bitset": "c",
+		"bootloader_flash_config.h": "c",
+		"cerrno": "cpp",
+		"chrono": "cpp",
+		"cmath": "cpp",
+		"compare": "cpp",
+		"complex": "cpp",
+		"cstdint": "cpp",
+		"cstdlib": "c",
+		"deque": "cpp",
+		"esp_camera.h": "c",
+		"esp_http_server.h": "c",
+		"esp_timer.h": "c",
+		"freertos.h": "c",
+		"functional": "c",
+		"hash_map": "c",
+		"iterator": "cpp",
+		"locale": "cpp",
+		"map": "cpp",
+		"memory": "cpp",
+		"ostream": "cpp",
+		"queue": "cpp",
+		"regex": "c",
+		"s014_tf_config.h": "c",
+		"span": "c",
+		"stack": "cpp",
+		"string": "c",
+		"string_view": "c",
+		"tuple": "cpp",
+		"typeindex": "cpp",
+		"typeinfo": "cpp",
+		"unordered_map": "cpp",
+		"unordered_set": "cpp",
+		"utility": "cpp",
+		"vector": "cpp"
+	},
+	"files.exclude": {
+		"**.py[oc]": true,
+		"**/__pycache__/": true,
+		"**/.classpath": true,
+		"**/.DS_Store": true,
+		"**/.factorypath": true,
+		"**/.git": true,
+		"**/.hg": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.svn": true,
+		"**/.venv": true,
+		"**/.vscode": true,
+		"**/bower_components": true,
+		"**/build": true,
+		"**/CVS": true,
+		"**/dist": true,
+		"**/node_modules": true,
+		"**/target": true,
+		"**/tmp": true
+	},
+	"files.trimTrailingWhitespace": true,
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true
+	},
+	"git.autofetch": true,
+	"git.blame.editorDecoration.enabled": false,
+	"git.blame.statusBarItem.enabled": false,
+	"git.confirmSync": false,
+	"git.enableCommitSigning": true,
+	"git.enableSmartCommit": true,
+	"git.openRepositoryInParentFolders": "never",
+	"github.copilot.chat.agent.thinkingTool": true,
+	"github.copilot.chat.codesearch.enabled": true,
+	"github.copilot.chat.editor.temporalContext.enabled": true,
+	"github.copilot.chat.edits.temporalContext.enabled": true,
+	"github.copilot.chat.generateTests.codeLens": true,
+	"github.copilot.chat.languageContext.fix.typescript.enabled": true,
+	"github.copilot.chat.languageContext.inline.typescript.enabled": true,
+	"github.copilot.chat.languageContext.typescript.enabled": true,
+	"github.copilot.chat.scopeSelection": true,
+	"github.copilot.enable": {
+		"*": true,
+		"markdown": true,
+		"plaintext": false,
+		"scminput": false
+	},
+	"github.copilot.nextEditSuggestions.enabled": true,
+	"go.toolsManagement.autoUpdate": true,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"javascript.validate.enable": false,
+	"kilo-code.allowedCommands": [
+		"tsc",
+		"git log",
+		"git diff",
+		"git show",
+		"fd",
+		"rg",
+		"lstr",
+		"cat",
+		"ls",
+		"uv",
+		"uvx",
+		"bun",
+		"bunx"
+	],
+	"markdown-pdf.highlightStyle": "nord.css",
+	"markdown-preview-enhanced.previewTheme": "atom-light.css",
+	"markdown.extension.list.indentationSize": "inherit",
+	"markdown.extension.toc.levels": "2..6",
+	"notebook.cellToolbarLocation": {
+		"default": "right",
+		"jupyter-notebook": "left"
+	},
+	"prettier.arrowParens": "always",
+	"prettier.jsxSingleQuote": true,
+	"prettier.semi": true,
+	"prettier.singleQuote": true,
+	"prettier.trailingComma": "es5",
+	"python.analysis.inlayHints.functionReturnTypes": true,
+	"python.analysis.inlayHints.variableTypes": true,
+	"python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+	"redhat.telemetry.enabled": false,
+	"ruff.nativeServer": true,
+	"rust-analyzer.check.command": "clippy",
+	"rust-analyzer.debug.openDebugPane": true,
+	"screencastMode.fontSize": 32,
+	"screencastMode.keyboardOptions": {
+		"showCommandGroups": false,
+		"showCommands": false,
+		"showKeybindings": true,
+		"showKeys": false,
+		"showSingleEditorCursorMoves": true
+	},
+	"screencastMode.mouseIndicatorColor": "#805AD5",
+	"screencastMode.mouseIndicatorSize": 40,
+	"screencastMode.verticalOffset": 10,
+	"search.defaultViewMode": "tree",
+	"search.exclude": {
+		"**/.git": true,
+		"**/*.code-search": true,
+		"**/bower_components": true,
+		"**/node_modules": true
+	},
+	"search.useGlobalIgnoreFiles": false,
+	"search.useIgnoreFiles": false,
+	"search.useParentIgnoreFiles": false,
+	"security.workspace.trust.untrustedFiles": "open",
+	"svelte.enable-ts-plugin": true,
+	"telemetry.telemetryLevel": "off",
+	"terminal.external.linuxExec": "wezterm",
+	"terminal.external.osxExec": "wezterm",
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.defaultProfile.osx": "zsh",
+	"terminal.integrated.defaultProfile.windows": "PowerShell",
+	"terminal.integrated.fontFamily": "'Berkeley Mono Trial'",
+	"terminal.integrated.fontSize": 13,
+	"terminal.integrated.shellIntegration.decorationsEnabled": "never",
+	"terminal.integrated.showExitAlert": false,
+	"terminal.integrated.suggest.enabled": false,
+	"terminal.integrated.tabs.hideCondition": "singleGroup",
+	"todo-tree.general.tags": [
+		"BUG",
+		"HACK",
+		"FIX",
+		"FEAT",
+		"TODO",
+		"REMOVE",
+		"WARN",
+		"NOTE",
+		"INFO",
+		"IDEA",
+		"REVIEW",
+		"QUESTION",
+		"DEBUG",
+		"OPTIMIZE",
+		"IMPROVE",
+		"REFACTOR",
+		"WTF",
+		"HOTFIX",
+		"ISSUE",
+		"TASK",
+		"DONE",
+		"XXX",
+		"[ ]",
+		"[x]"
+	],
+	"todo-tree.highlights.useColourScheme": true,
+	// VIM
+	"vim.easymotion": true,
+	"vim.enableNeovim": true,
+	"vim.foldfix": true,
+	"vim.handleKeys": {
+		"<C-a>": false,
+		"<C-d>": true,
+		"<C-f>": false,
+		"<C-s>": false,
+		"<C-z>": false
+	},
+	"vim.highlightedyank.enable": true,
+	"vim.hlsearch": true,
+	"vim.incsearch": true,
+	"vim.insertModeKeyBindings": [
+		{
+			"after": [],
+			"before": []
+		}
+	],
+	"vim.leader": "<space>",
+	"vim.normalModeKeyBindings": [],
+	"vim.normalModeKeyBindingsNonRecursive": [
+		{
+			"after": ["leader", "leader", "s"],
+			"before": ["s"]
+		},
+		{
+			"before": ["g", "d"],
+			"commands": ["editor.action.revealDefinition"],
+			"when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+		},
+		{
+			"before": ["g", "r"],
+			"commands": ["editor.action.goToReferences"],
+			"when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+		},
+		{
+			"before": ["g", "i"],
+			"commands": ["editor.action.goToImplementation"],
+			"when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+		},
+		{
+			"before": ["g", "p"],
+			"commands": ["editor.action.marker.next"],
+			"when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+		}
+	],
+	"vim.showMarksInGutter": false,
+	"vim.targets.enable": false,
+	"vim.useCtrlKeys": true,
+	"vim.useSystemClipboard": true,
+	"vim.visualstar": true,
+	"vscode_custom_css.imports": ["file:///Users/msa/.vscode/css/style.css"],
+	"vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim", // or wherever your `nvim` is
+	"vscode-neovim.neovimInitVimPaths.darwin": "/home/youruser/.config/nvim-vscode/init.lua",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"window.autoDetectColorScheme": true,
+	"window.autoDetectHighContrast": false,
+	"window.commandCenter": false,
+	"window.systemColorTheme": "auto",
+	"window.zoomPerWindow": false,
+	"workbench.auxiliaryActivityBar.location": "top",
+	"workbench.colorTheme": "Default Dark+",
+	"workbench.editor.closeEmptyGroups": false,
+	"workbench.editor.highlightModifiedTabs": true,
+	"workbench.editor.labelFormat": "default",
+	"workbench.editorAssociations": {
+		"*.db": "sqlite-viewer.option",
+		"*.ipynb": "jupyter-notebook",
+		"git-rebase-todo": "default"
+	},
+	"workbench.fontAliasing": "auto",
+	"workbench.layoutControl.enabled": false,
+	"workbench.list.smoothScrolling": true,
+	"workbench.panel.showLabels": false,
+	"workbench.startupEditor": "none",
+	"zenMode.centerLayout": false,
+	"zenMode.fullScreen": false,
+	"zenMode.hideLineNumbers": false,
+	"biome.lsp.bin": "/opt/homebrew/bin/biome",
+	"kilo-code.deniedCommands": [],
+	"workbench.settings.showAISearchToggle": true,
+	"workbench.activityBar.location": "top",
+	"github.copilot.chat.newWorkspace.useContext7": true,
+	"basedpyright.analysis.inlayHints.callArgumentNamesMatching": true,
+	"basedpyright.analysis.inlayHints.genericTypes": true,
+	"workbench.preferredLightColorTheme": "Default Light+",
+	"editor.fontSize": 14,
+	"roo-cline.allowedCommands": [
+		"git log",
+		"git diff",
+		"git show"
+	],
+	"roo-cline.deniedCommands": []
 }
