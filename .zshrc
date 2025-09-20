@@ -133,6 +133,7 @@ source /etc/profile
 
 export PATH="$HOME/.local/bin:\
 $BUN_INSTALL/bin:\
+$HOME/msa/scripts:\
 $HOME/go/bin:\
 $DENO_INSTALL/bin:\
 $HOME/.dotnet/tools:\
